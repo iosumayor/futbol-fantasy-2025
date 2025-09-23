@@ -6,8 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write .",
     "preview": "vite preview"
+  },
+    "lint-staged": {
+    "*/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier  --write"
+    ]
   },
   "dependencies": {
     "react": "^19.1.1",
