@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write .",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
     "preview": "vite preview"
   },
   "lint-staged": {
