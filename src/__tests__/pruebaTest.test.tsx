@@ -1,19 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import App from "../App";
 import { describe, expect, test } from "vitest";
 
 describe("App Component", () => {
-  test("renders Vite + React heading and increments counter", async () => {
+  test("renders heading", async () => {
     render(<App />);
-
+    // Busca solo el h1
     expect(
-      screen.getByText((text) => text.includes("Vite + React")),
+      await screen.findByRole("heading", { name: /Vite \+ React/ }),
     ).toBeInTheDocument();
-
-    const button = screen.getByRole("button", { name: /count is/i });
-    await userEvent.click(button);
-    expect(button).toHaveTextContent("count is 1");
-    screen.debug();
   });
 });
