@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 export const NavBar: React.FC = () => {
   return (
     <nav>
-      <h2>Fantasy Futbol</h2>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Pagina de Inicio</Link>
         </li>
         <li>
-          <Link to="/players">Players</Link>
+          <Link to="/players">Jugadores</Link>
         </li>
       </ul>
     </nav>

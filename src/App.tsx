@@ -4,15 +4,12 @@ import { Players } from "./ui/pages/Players";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Fantasy Fútbol App</h1>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/players" element={<Players />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/players" element={<Players />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
