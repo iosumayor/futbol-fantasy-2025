@@ -10,7 +10,7 @@ export const Players: React.FC = () => {
     return <div>Cargando jugadores...</div>;
   }
   if (isError) {
-    return <div>Error al cargar jugadores.</div>;
+    return <div>Error al cargar jugadores</div>;
   }
 
   const filteredPlayers = players?.filter((player) =>
