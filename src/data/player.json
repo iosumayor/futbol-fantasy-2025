@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "name": "Lamine Yamal",
+    "position": "Delantero",
+    "team": "Barcelona"
+  },
+  {
+    "id": 2,
+    "name": "Luka Modric",
+    "position": "Centrocampista",
+    "team": "Real Madrid"
+  },
+  {
+    "id": 3,
+    "name": "Marc-André ter Stegen",
+    "position": "Portero",
+    "team": "Barcelona"
+  },
+  {
+    "id": 4,
+    "name": "Jude Bellingham",
+    "position": "Centrocampista",
+    "team": "Real Madrid"
+  },
+  {
+    "id": 5,
+    "name": "Antoine Griezmann",
+    "position": "Delantero",
+    "team": "Atlético de Madrid"
+  },
+  {
+    "id": 6,
+    "name": "Jan Oblak",
+    "position": "Portero",
+    "team": "Atlético de Madrid"
+  },
+  {
+    "id": 7,
+    "name": "Isco",
+    "position": "Centrocampista",
+    "team": "Real Betis"
+  },
+  {
+    "id": 8,
+    "name": "Borja Iglesias",
+    "position": "Delantero",
+    "team": "Real Betis"
+  },
+  {
+    "id": 9,
+    "name": "Unai Simón",
+    "position": "Portero",
+    "team": "Athletic Club"
+  },
+  {
+    "id": 10,
+    "name": "Iñaki Williams",
+    "position": "Delantero",
+    "team": "Athletic Club"
+  },
+  {
+    "id": 11,
+    "name": "Takefusa Kubo",
+    "position": "Delantero",
+    "team": "Real Sociedad"
+  },
+  {
+    "id": 12,
+    "name": "Mikel Merino",
+    "position": "Centrocampista",
+    "team": "Real Sociedad"
+  },
+  {
+    "id": 13,
+    "name": "Álex Remiro",
+    "position": "Portero",
+    "team": "Real Sociedad"
+  },
+  {
+    "id": 14,
+    "name": "Gerard Moreno",
+    "position": "Delantero",
+    "team": "Villarreal"
+  },
+  {
+    "id": 15,
+    "name": "Dani Parejo",
+    "position": "Centrocampista",
+    "team": "Villarreal"
+  },
+  {
+    "id": 16,
+    "name": "Álvaro Valles",
+    "position": "Portero",
+    "team": "Las Palmas"
+  },
+  {
+    "id": 17,
+    "name": "Jonathan Viera",
+    "position": "Centrocampista",
+    "team": "Las Palmas"
+  },
+  { "id": 18, "name": "Enes Ünal", "position": "Delantero", "team": "Getafe" },
+  { "id": 19, "name": "David Soria", "position": "Portero", "team": "Getafe" },
+  {
+    "id": 20,
+    "name": "Joselu",
+    "position": "Delantero",
+    "team": "Real Madrid"
+  },
+  {
+    "id": 21,
+    "name": "Pedri",
+    "position": "Centrocampista",
+    "team": "Barcelona"
+  },
+  {
+    "id": 22,
+    "name": "Robert Lewandowski",
+    "position": "Delantero",
+    "team": "Barcelona"
+  },
+  {
+    "id": 23,
+    "name": "Koke",
+    "position": "Centrocampista",
+    "team": "Atlético de Madrid"
+  },
+  {
+    "id": 24,
+    "name": "Ángel Correa",
+    "position": "Delantero",
+    "team": "Atlético de Madrid"
+  },
+  {
+    "id": 25,
+    "name": "Claudio Bravo",
+    "position": "Portero",
+    "team": "Real Betis"
+  },
+  {
+    "id": 26,
+    "name": "Aitor Ruibal",
+    "position": "Defensa",
+    "team": "Real Betis"
+  },
+  {
+    "id": 27,
+    "name": "Yeray Álvarez",
+    "position": "Defensa",
+    "team": "Athletic Club"
+  },
+  {
+    "id": 28,
+    "name": "Mikel Oyarzabal",
+    "position": "Delantero",
+    "team": "Real Sociedad"
+  },
+  {
+    "id": 29,
+    "name": "Pau Torres",
+    "position": "Defensa",
+    "team": "Villarreal"
+  },
+  {
+    "id": 30,
+    "name": "Sergio Herrera",
+    "position": "Portero",
+    "team": "Osasuna"
+  }
+]
