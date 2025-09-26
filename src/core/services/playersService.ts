@@ -9,10 +9,3 @@ export function usePlayers() {
     queryFn: () => repo.getAllPlayers(),
   });
 }
-
-export function usePlayersByTeam(team: string) {
-  return useQuery({
-    queryKey: ["players", team],
-    queryFn: () => repo.getPlayerByTeam(team),
-  });
-}

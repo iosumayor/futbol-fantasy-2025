@@ -14,9 +14,4 @@ export class JsonPlayersRepository implements PlayerRepository {
 
     return players;
   }
-
-  async getPlayerByTeam(team: string): Promise<Player[]> {
-    const players = await this.getAllPlayers();
-    return players.filter((player) => player.team === team);
-  }
 }
