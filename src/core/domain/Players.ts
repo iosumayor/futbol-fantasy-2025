@@ -1,7 +1,7 @@
 export interface Player {
   id: number;
   name: string;
-  position: "portero" | "defensa" | "mediocampista" | "delantero";
+  position: "Portero" | "Defensa" | "Mediocampista" | "Delantero";
   team: string;
   points: number;
 }
