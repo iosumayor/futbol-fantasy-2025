@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavBar } from "../../components/NavBar";
 import { usePlayers } from "../../../core/services/playersService";
+import { Player } from "@core/domain/Players";
 
 export const Players: React.FC = () => {
   const { data: players, isLoading, isError } = usePlayers();
@@ -15,23 +16,23 @@ export const Players: React.FC = () => {
   if (isLoading) return <div>Cargando jugadores...</div>;
   if (isError) return <div>Error al cargar jugadores</div>;
 
-  let filteredPlayers = players ?? [];
-  if (nameFilter) {
-    filteredPlayers = filteredPlayers.filter((player) =>
-      player.name.toLowerCase().includes(nameFilter.toLowerCase()),
-    );
-  }
-  if (showTeamFilter && teamFilter) {
-    filteredPlayers = filteredPlayers.filter((player) =>
-      player.team.toLowerCase().includes(teamFilter.toLowerCase()),
-    );
-  }
-  if (showPositionFilter && positionFilter) {
-    filteredPlayers = filteredPlayers.filter(
-      (player) => player.position === positionFilter,
-    );
-  }
+  const filters = [
+    nameFilter
+      ? (player: Player) =>
+          player.name.toLowerCase().includes(nameFilter.toLowerCase())
+      : undefined,
+    showTeamFilter && teamFilter
+      ? (player: Player) =>
+          player.team.toLowerCase().includes(teamFilter.toLowerCase())
+      : undefined,
+    showPositionFilter && positionFilter
+      ? (player: Player) => player.position === positionFilter
+      : undefined,
+  ].filter(Boolean);
 
+  const filteredPlayers = (players ?? []).filter((player) =>
+    filters.every((fn) => fn!(player)),
+  );
   return (
     <div>
       <h2>Listado Jugadores</h2>
