@@ -72,6 +72,26 @@ describe("en la página de Players", () => {
     expect(screen.queryByText("Modric")).not.toBeInTheDocument();
   });
 
+  it("debería permitir ordenar jugadores por precio ascendente y descendente", async () => {
+    const playersWithPrice = [
+      aPlayer({ name: "Jugador Barato", price: 5 }),
+      aPlayer({ name: "Jugador Caro", id: 2, price: 20 }),
+    ];
+    setupPlayersTest(playersWithPrice);
+
+    const rowsAsc = screen.getAllByRole("row");
+    expect(rowsAsc[1]).toHaveTextContent("Jugador Barato");
+    expect(rowsAsc[2]).toHaveTextContent("Jugador Caro");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Ordenar por precio" }),
+    );
+
+    const rowsDesc = screen.getAllByRole("row");
+    expect(rowsDesc[1]).toHaveTextContent("Jugador Caro");
+    expect(rowsDesc[2]).toHaveTextContent("Jugador Barato");
+  });
+
   it("muestra el estado de carga (isLoading)", () => {
     setupPlayersTest(undefined, true, false);
 
