@@ -50,11 +50,9 @@ describe("en la página de Players", () => {
   it("debería permitir filtrar jugadores por equipo", async () => {
     setupPlayersTest();
 
-    await userEvent.selectOptions(screen.getByLabelText("Filtrar por:"), [
-      "team",
-    ]);
+    await userEvent.click(screen.getByText("Filtrar por equipo"));
     await userEvent.type(
-      screen.getByPlaceholderText("Filtrar por nombre"),
+      screen.getByPlaceholderText("Filtrar por equipo"),
       "Barcelona",
     );
 
@@ -65,12 +63,9 @@ describe("en la página de Players", () => {
   it("debería permitir filtrar jugadores por posición", async () => {
     setupPlayersTest();
 
-    await userEvent.selectOptions(screen.getByLabelText("Filtrar por:"), [
-      "position",
-    ]);
-    await userEvent.type(
-      screen.getByPlaceholderText("Filtrar por nombre"),
-      "Centrocampista",
+    await userEvent.click(screen.getByText("Filtrar por posición"));
+    await userEvent.click(
+      screen.getByRole("button", { name: "Centrocampista" }),
     );
 
     expect(screen.getByText("Pedri")).toBeInTheDocument();
