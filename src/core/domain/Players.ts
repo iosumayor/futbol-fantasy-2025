@@ -4,4 +4,5 @@ export interface Player {
   position: "Portero" | "Defensa" | "Centrocampista" | "Delantero";
   team: string;
   points: number;
+  price: number;
 }
