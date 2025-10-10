@@ -4,7 +4,10 @@ import { usePlayers } from "../../../core/services/playersService";
 
 export const Players: React.FC = () => {
   const { data: players, isLoading, isError } = usePlayers();
-  const [filterByTeam, setFilterByTeam] = useState<string>("");
+  const [filterType, setFilterType] = useState<"name" | "team" | "position">(
+    "name",
+  );
+  const [filterValue, setFilterValue] = useState<string>("");
 
   if (isLoading) {
     return <div>Cargando jugadores...</div>;
@@ -14,18 +17,33 @@ export const Players: React.FC = () => {
   }
 
   const filteredPlayers = players?.filter((player) =>
-    player.team.toLowerCase().includes(filterByTeam.toLowerCase()),
+    player[filterType].toLowerCase().includes(filterValue.toLowerCase()),
   );
 
   return (
     <div>
       <h2>Listado Jugadores</h2>
       <NavBar />
+      <div>
+        <label>
+          Filtrar por:
+          <select
+            value={filterType}
+            onChange={(e) =>
+              setFilterType(e.target.value as "name" | "team" | "position")
+            }
+          >
+            <option value="name">Nombre</option>
+            <option value="team">Equipo</option>
+            <option value="position">Posición</option>
+          </select>
+        </label>
+      </div>
       <input
         type="text"
-        placeholder="Filtrar por equipo"
-        value={filterByTeam}
-        onChange={(e) => setFilterByTeam(e.target.value)}
+        placeholder="Filtrar por nombre"
+        value={filterValue}
+        onChange={(e) => setFilterValue(e.target.value)}
       />
       <table>
         <thead>
