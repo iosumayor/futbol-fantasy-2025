@@ -12,6 +12,7 @@ export const Players: React.FC = () => {
   const [positionFilter, setPositionFilter] = useState<
     "Portero" | "Defensa" | "Centrocampista" | "Delantero" | ""
   >("");
+  const [priceOrder, setPriceOrder] = useState<"asc" | "desc">("asc");
 
   if (isLoading) return <div>Cargando jugadores...</div>;
   if (isError) return <div>Error al cargar jugadores</div>;
@@ -33,6 +34,11 @@ export const Players: React.FC = () => {
   const filteredPlayers = (players ?? []).filter((player) =>
     filters.every((fn) => fn!(player)),
   );
+
+  const sortedByPricePlayers = [...filteredPlayers].sort((a, b) =>
+    priceOrder === "asc" ? a.price - b.price : b.price - a.price,
+  );
+
   return (
     <div>
       <h2>Listado Jugadores</h2>
@@ -82,15 +88,34 @@ export const Players: React.FC = () => {
             <th>Puntos</th>
             <th>Equipo</th>
             <th>Posición</th>
+            <th>
+              Precio
+              <button
+                aria-label="Ordenar por precio"
+                onClick={() =>
+                  setPriceOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+                }
+                style={{
+                  marginLeft: 4,
+                  fontWeight: "bold",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                {priceOrder === "asc" ? "↑" : "↓"}
+              </button>
+            </th>
           </tr>
         </thead>
         <tbody>
-          {filteredPlayers.map((player) => (
+          {sortedByPricePlayers.map((player) => (
             <tr key={player.id}>
               <td>{player.name}</td>
               <td>{player.points} puntos</td>
               <td>{player.team}</td>
               <td>{player.position}</td>
+              <td>{player.price} €</td>
             </tr>
           ))}
         </tbody>
