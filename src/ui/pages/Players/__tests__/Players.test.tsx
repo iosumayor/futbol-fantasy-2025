@@ -12,7 +12,7 @@ describe("en la página de Players", () => {
     vi.restoreAllMocks();
   });
 
-  it("debería permitir filtrar jugadores por equipo", async () => {
+  it("debería permitir filtrar jugadores por nombre", async () => {
     vi.spyOn(playersService, "usePlayers").mockReturnValue({
       data: [
         aPlayer({ team: "Real Madrid", name: "Modric" }),
@@ -25,8 +25,8 @@ describe("en la página de Players", () => {
     renderWithRouter(<Players />);
 
     await userEvent.type(
-      screen.getByPlaceholderText("Filtrar por equipo"),
-      "Real Madrid",
+      screen.getByPlaceholderText("Filtrar por nombre"),
+      "Modric",
     );
 
     expect(screen.getByText("Modric")).toBeInTheDocument();
