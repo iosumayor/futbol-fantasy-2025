@@ -122,7 +122,12 @@
   background: #222f3e;
   transition: background 0.2s;
 }
-
+.table img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .priceButton {
   background: none;
   border: none;

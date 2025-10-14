@@ -101,6 +101,7 @@ export const Players: React.FC = () => {
       <table className={styles.table}>
         <thead>
           <tr>
+            <th></th>
             <th>Nombre</th>
             <th>Puntos</th>
             <th>Equipo</th>
@@ -122,6 +123,15 @@ export const Players: React.FC = () => {
         <tbody>
           {sortedByPricePlayers.map((player) => (
             <tr key={player.id}>
+              <td>
+                {player.image && (
+                  <img
+                    src={player.image}
+                    alt={player.name}
+                    className={styles.playerImage}
+                  />
+                )}
+              </td>
               <td>{player.name}</td>
               <td>{player.points} puntos</td>
               <td>{player.team}</td>
