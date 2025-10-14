@@ -3,170 +3,210 @@
     "id": 1,
     "name": "Lamine Yamal",
     "position": "Delantero",
-    "team": "Barcelona"
+    "team": "Barcelona",
+    "precio": 10
   },
   {
     "id": 2,
     "name": "Luka Modric",
     "position": "Centrocampista",
-    "team": "Real Madrid"
+    "team": "Real Madrid",
+    "precio": 12
   },
   {
     "id": 3,
     "name": "Marc-André ter Stegen",
     "position": "Portero",
-    "team": "Barcelona"
+    "team": "Barcelona",
+    "precio": 9
   },
   {
     "id": 4,
     "name": "Jude Bellingham",
     "position": "Centrocampista",
-    "team": "Real Madrid"
+    "team": "Real Madrid",
+    "precio": 13
   },
   {
     "id": 5,
     "name": "Antoine Griezmann",
     "position": "Delantero",
-    "team": "Atlético de Madrid"
+    "team": "Atlético de Madrid",
+    "precio": 11
   },
   {
     "id": 6,
     "name": "Jan Oblak",
     "position": "Portero",
-    "team": "Atlético de Madrid"
+    "team": "Atlético de Madrid",
+    "precio": 9
   },
   {
     "id": 7,
     "name": "Isco",
     "position": "Centrocampista",
-    "team": "Real Betis"
+    "team": "Real Betis",
+    "precio": 8
   },
   {
     "id": 8,
     "name": "Borja Iglesias",
     "position": "Delantero",
-    "team": "Real Betis"
+    "team": "Real Betis",
+    "precio": 8
   },
   {
     "id": 9,
     "name": "Unai Simón",
     "position": "Portero",
-    "team": "Athletic Club"
+    "team": "Athletic Club",
+    "precio": 8
   },
   {
     "id": 10,
     "name": "Iñaki Williams",
     "position": "Delantero",
-    "team": "Athletic Club"
+    "team": "Athletic Club",
+    "precio": 9
   },
   {
     "id": 11,
     "name": "Takefusa Kubo",
     "position": "Delantero",
-    "team": "Real Sociedad"
+    "team": "Real Sociedad",
+    "precio": 8
   },
   {
     "id": 12,
     "name": "Mikel Merino",
     "position": "Centrocampista",
-    "team": "Real Sociedad"
+    "team": "Real Sociedad",
+    "precio": 8
   },
   {
     "id": 13,
     "name": "Álex Remiro",
     "position": "Portero",
-    "team": "Real Sociedad"
+    "team": "Real Sociedad",
+    "precio": 7
   },
   {
     "id": 14,
     "name": "Gerard Moreno",
     "position": "Delantero",
-    "team": "Villarreal"
+    "team": "Villarreal",
+    "precio": 9
   },
   {
     "id": 15,
     "name": "Dani Parejo",
     "position": "Centrocampista",
-    "team": "Villarreal"
+    "team": "Villarreal",
+    "precio": 8
   },
   {
     "id": 16,
     "name": "Álvaro Valles",
     "position": "Portero",
-    "team": "Las Palmas"
+    "team": "Las Palmas",
+    "precio": 7
   },
   {
     "id": 17,
     "name": "Jonathan Viera",
     "position": "Centrocampista",
-    "team": "Las Palmas"
+    "team": "Las Palmas",
+    "precio": 7
   },
-  { "id": 18, "name": "Enes Ünal", "position": "Delantero", "team": "Getafe" },
-  { "id": 19, "name": "David Soria", "position": "Portero", "team": "Getafe" },
+  {
+    "id": 18,
+    "name": "Enes Ünal",
+    "position": "Delantero",
+    "team": "Getafe",
+    "precio": 7
+  },
+  {
+    "id": 19,
+    "name": "David Soria",
+    "position": "Portero",
+    "team": "Getafe",
+    "precio": 7
+  },
   {
     "id": 20,
     "name": "Joselu",
     "position": "Delantero",
-    "team": "Real Madrid"
+    "team": "Real Madrid",
+    "precio": 8
   },
   {
     "id": 21,
     "name": "Pedri",
     "position": "Centrocampista",
-    "team": "Barcelona"
+    "team": "Barcelona",
+    "precio": 10
   },
   {
     "id": 22,
     "name": "Robert Lewandowski",
     "position": "Delantero",
-    "team": "Barcelona"
+    "team": "Barcelona",
+    "precio": 12
   },
   {
     "id": 23,
     "name": "Koke",
     "position": "Centrocampista",
-    "team": "Atlético de Madrid"
+    "team": "Atlético de Madrid",
+    "precio": 8
   },
   {
     "id": 24,
     "name": "Ángel Correa",
     "position": "Delantero",
-    "team": "Atlético de Madrid"
+    "team": "Atlético de Madrid",
+    "precio": 8
   },
   {
     "id": 25,
     "name": "Claudio Bravo",
     "position": "Portero",
-    "team": "Real Betis"
+    "team": "Real Betis",
+    "precio": 7
   },
   {
     "id": 26,
     "name": "Aitor Ruibal",
     "position": "Defensa",
-    "team": "Real Betis"
+    "team": "Real Betis",
+    "precio": 7
   },
   {
     "id": 27,
     "name": "Yeray Álvarez",
     "position": "Defensa",
-    "team": "Athletic Club"
+    "team": "Athletic Club",
+    "precio": 7
   },
   {
     "id": 28,
     "name": "Mikel Oyarzabal",
     "position": "Delantero",
-    "team": "Real Sociedad"
+    "team": "Real Sociedad",
+    "precio": 8
   },
   {
     "id": 29,
     "name": "Pau Torres",
     "position": "Defensa",
-    "team": "Villarreal"
+    "team": "Villarreal",
+    "precio": 7
   },
   {
     "id": 30,
     "name": "Sergio Herrera",
     "position": "Portero",
-    "team": "Osasuna"
+    "team": "Osasuna",
+    "precio": 7
   }
 ]

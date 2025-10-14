@@ -7,6 +7,7 @@ export function aPlayer(options: Partial<Player> = {}): Player {
     position: "Delantero",
     team: "Equipo Test",
     points: 0,
+    price: 0,
   };
 
   return { ...defaultPlayer, ...options };
