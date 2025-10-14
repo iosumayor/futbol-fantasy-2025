@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./NavBar.module.scss";
 
 export const NavBar: React.FC = () => {
   return (
-    <nav>
-      <ul>
+    <nav className={styles.nav}>
+      <ul className={styles.list}>
         <li>
-          <Link to="/">Pagina de Inicio</Link>
+          <Link to="/" className={styles.navButton}>
+            Pagina de Inicio
+          </Link>
         </li>
         <li>
-          <Link to="/players">Jugadores</Link>
+          <Link to="/players" className={styles.navButton}>
+            Jugadores
+          </Link>
         </li>
       </ul>
     </nav>
