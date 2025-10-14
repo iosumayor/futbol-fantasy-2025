@@ -80,7 +80,15 @@ export const Players: React.FC = () => {
                 <button
                   key={pos}
                   className={positionFilter === pos ? styles.active : ""}
-                  onClick={() => setPositionFilter(pos as any)}
+                  onClick={() =>
+                    setPositionFilter(
+                      pos as
+                        | "Portero"
+                        | "Defensa"
+                        | "Centrocampista"
+                        | "Delantero",
+                    )
+                  }
                 >
                   {pos}
                 </button>
