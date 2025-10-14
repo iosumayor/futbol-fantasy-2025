@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./Players.module.scss";
 import { NavBar } from "../../components/NavBar";
 import { usePlayers } from "../../../core/services/playersService";
 import { Player } from "@core/domain/Players";
@@ -40,52 +41,56 @@ export const Players: React.FC = () => {
   );
 
   return (
-    <div>
-      <h2>Listado Jugadores</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Listado Jugadores</h2>
       <NavBar />
-      <input
-        type="text"
-        placeholder="Filtrar por nombre"
-        value={nameFilter}
-        onChange={(e) => setNameFilter(e.target.value)}
-      />
-      <button onClick={() => setShowTeamFilter((v) => !v)}>
-        {showTeamFilter ? "Ocultar filtro equipo" : "Filtrar por equipo"}
-      </button>
-      {showTeamFilter && (
+      <div className={styles.filters}>
         <input
           type="text"
-          placeholder="Filtrar por equipo"
-          value={teamFilter}
-          onChange={(e) => setTeamFilter(e.target.value)}
+          placeholder="Filtrar por nombre"
+          value={nameFilter}
+          onChange={(e) => setNameFilter(e.target.value)}
         />
-      )}
-      <button onClick={() => setShowPositionFilter((v) => !v)}>
-        {showPositionFilter
-          ? "Ocultar filtro posición"
-          : "Filtrar por posición"}
-      </button>
-      {showPositionFilter && (
-        <div>
-          {["Portero", "Defensa", "Centrocampista", "Delantero"].map((pos) => (
-            <button
-              key={pos}
-              onClick={() =>
-                setPositionFilter(
-                  pos as "Portero" | "Defensa" | "Centrocampista" | "Delantero",
-                )
-              }
-              style={{
-                fontWeight: positionFilter === pos ? "bold" : "normal",
-              }}
-            >
-              {pos}
-            </button>
-          ))}
-          <button onClick={() => setPositionFilter("")}>Quitar filtro</button>
-        </div>
-      )}
-      <table>
+        <button
+          className={showTeamFilter ? styles.active : ""}
+          onClick={() => setShowTeamFilter((prev) => !prev)}
+        >
+          {showTeamFilter ? "Ocultar filtro equipo" : "Filtrar por equipo"}
+        </button>
+        {showTeamFilter && (
+          <input
+            type="text"
+            placeholder="Filtrar por equipo"
+            value={teamFilter}
+            onChange={(e) => setTeamFilter(e.target.value)}
+          />
+        )}
+        <button
+          className={showPositionFilter ? styles.active : ""}
+          onClick={() => setShowPositionFilter((prev) => !prev)}
+        >
+          {showPositionFilter
+            ? "Ocultar filtro posición"
+            : "Filtrar por posición"}
+        </button>
+        {showPositionFilter && (
+          <div>
+            {["Portero", "Defensa", "Centrocampista", "Delantero"].map(
+              (pos) => (
+                <button
+                  key={pos}
+                  className={positionFilter === pos ? styles.active : ""}
+                  onClick={() => setPositionFilter(pos as any)}
+                >
+                  {pos}
+                </button>
+              ),
+            )}
+            <button onClick={() => setPositionFilter("")}>Quitar filtro</button>
+          </div>
+        )}
+      </div>
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>Nombre</th>
@@ -96,16 +101,10 @@ export const Players: React.FC = () => {
               Precio
               <button
                 aria-label="Ordenar por precio"
+                className={styles.priceButton}
                 onClick={() =>
                   setPriceOrder((prev) => (prev === "asc" ? "desc" : "asc"))
                 }
-                style={{
-                  marginLeft: 4,
-                  fontWeight: "bold",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
               >
                 {priceOrder === "asc" ? "↑" : "↓"}
               </button>
