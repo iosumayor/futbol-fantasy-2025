@@ -32,7 +32,7 @@ export const Players: React.FC = () => {
   ].filter(Boolean);
 
   const filteredPlayers = (players ?? []).filter((player) =>
-    filters.every((fn) => fn!(player)),
+    filters.every((fn) => (fn as (player: Player) => boolean)(player)),
   );
 
   const sortedByPricePlayers = [...filteredPlayers].sort((a, b) =>
