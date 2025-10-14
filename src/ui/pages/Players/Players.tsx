@@ -74,7 +74,7 @@ export const Players: React.FC = () => {
             : "Filtrar por posición"}
         </button>
         {showPositionFilter && (
-          <div>
+          <div className={styles.positionFilters}>
             {["Portero", "Defensa", "Centrocampista", "Delantero"].map(
               (pos) => (
                 <button
