@@ -70,7 +70,11 @@ export const Players: React.FC = () => {
           {["Portero", "Defensa", "Centrocampista", "Delantero"].map((pos) => (
             <button
               key={pos}
-              onClick={() => setPositionFilter(pos as any)}
+              onClick={() =>
+                setPositionFilter(
+                  pos as "Portero" | "Defensa" | "Centrocampista" | "Delantero",
+                )
+              }
               style={{
                 fontWeight: positionFilter === pos ? "bold" : "normal",
               }}
