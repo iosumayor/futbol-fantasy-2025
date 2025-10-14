@@ -11,6 +11,7 @@ export class JsonPlayersRepository implements PlayerRepository {
       team: player.team,
       points: player.points ?? 0,
       price: player.precio ?? 0,
+      image: player.image,
     }));
 
     return players;
