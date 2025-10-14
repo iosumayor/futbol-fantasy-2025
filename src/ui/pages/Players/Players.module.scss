@@ -1,9 +1,13 @@
-@import "@styles/mixins";
+@use "@styles/mixins" as mixins;
 
 .container {
   background: #181a1b;
   min-height: 100vh;
   padding: 2rem 0;
+
+  @include mixins.mobile {
+    padding: 1rem 0;
+  }
 }
 
 .title {
@@ -14,6 +18,10 @@
   margin-bottom: 2rem;
   letter-spacing: 1px;
   text-shadow: 0 2px 8px #000;
+
+  @include mixins.mobile {
+    font-size: 1.3rem;
+  }
 }
 
 .filters {
@@ -26,6 +34,12 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   padding: 1rem 2rem;
+
+  @include mixins.mobile {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+  }
 }
 
 .filters input,
@@ -69,6 +83,11 @@
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+
+  @include mixins.mobile {
+    width: 100%;
+    font-size: 0.95rem;
+  }
 }
 
 .table th,
@@ -76,6 +95,11 @@
   padding: 0.75rem 1rem;
   text-align: left;
   color: #fff;
+
+  @include mixins.mobile {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
 }
 
 .table th {
@@ -119,6 +143,12 @@
   gap: 0.5rem;
   margin-top: 0.5rem;
   justify-content: center;
+
+  @include mixins.mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
 }
 
 .positionFilters button {
@@ -137,6 +167,11 @@
     color 0.2s,
     box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+
+  @include mixins.mobile {
+    min-width: unset;
+    width: 100%;
+  }
 }
 
 .positionFilters button.active {
@@ -149,4 +184,8 @@
   margin-left: 1rem;
   background: #0097e6;
   color: #fff;
+
+  @include mixins.mobile {
+    margin-left: 0;
+  }
 }
