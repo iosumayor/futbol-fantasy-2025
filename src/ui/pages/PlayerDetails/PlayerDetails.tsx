@@ -1,8 +1,8 @@
 import { usePlayer } from "@core/services/playersService";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./PlayerDetails.module.scss";
-import { useNavigate } from "react-router-dom";
+
 export const PlayerDetails: React.FC = () => {
   const { id } = useParams();
   const { data: player, isLoading, isError } = usePlayer(Number(id));
