@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Players.module.scss";
-import { NavBar } from "../../components/NavBar";
 import { usePlayers } from "../../../core/services/playersService";
 import { Player } from "@core/domain/Players";
 
 export const Players: React.FC = () => {
   const { data: players, isLoading, isError } = usePlayers();
+  const navigate = useNavigate();
   const [nameFilter, setNameFilter] = useState("");
   const [showTeamFilter, setShowTeamFilter] = useState(false);
   const [teamFilter, setTeamFilter] = useState("");
@@ -43,7 +44,6 @@ export const Players: React.FC = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Listado Jugadores</h2>
-      <NavBar />
       <div className={styles.filters}>
         <input
           type="text"
@@ -122,7 +122,11 @@ export const Players: React.FC = () => {
         </thead>
         <tbody>
           {sortedByPricePlayers.map((player) => (
-            <tr key={player.id}>
+            <tr
+              key={player.id}
+              className={styles.clickableRow}
+              onClick={() => navigate(`/players/${player.id}`)}
+            >
               <td>
                 {player.image && (
                   <img

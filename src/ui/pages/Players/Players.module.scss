@@ -194,3 +194,11 @@
     margin-left: 0;
   }
 }
+
+.clickableRow {
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.clickableRow:hover {
+  background: #222f3e;
+}
