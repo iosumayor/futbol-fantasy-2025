@@ -6,4 +6,5 @@ export interface Player {
   points: number;
   price: number;
   image?: string;
+  imageDetail?: string;
 }

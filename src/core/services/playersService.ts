@@ -9,3 +9,10 @@ export function usePlayers() {
     queryFn: () => repo.getAllPlayers(),
   });
 }
+
+export function usePlayer(id: number) {
+  return useQuery({
+    queryKey: ["player", id],
+    queryFn: () => repo.getPlayerById(id),
+  });
+}
