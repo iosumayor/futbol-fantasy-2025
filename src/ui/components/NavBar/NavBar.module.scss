@@ -1,39 +1,36 @@
 .nav {
-  margin-bottom: 2rem;
-  text-align: center;
+  width: 100%;
+  background: #232526;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .list {
   display: flex;
-  gap: 1rem;
-  justify-content: left;
-  padding: 0;
-  margin-left: 20px;
+  justify-content: center;
+  gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navButton {
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  background: #00ffb3;
-  color: #181a1b;
+  padding: 0.7rem 2rem;
+  border-radius: 6px 6px 0 0;
+  background: none;
+  color: #fff;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition:
     background 0.2s,
-    color 0.2s,
-    box-shadow 0.2s;
-  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+    color 0.2s;
 
   &:hover,
   &:focus {
     background: #0097e6;
     color: #fff;
-    outline: none;
-    box-shadow: 0 2px 8px rgba(0, 151, 230, 0.12);
   }
 }
