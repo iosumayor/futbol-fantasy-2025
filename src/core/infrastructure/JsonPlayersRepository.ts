@@ -11,8 +11,16 @@ export class JsonPlayersRepository implements PlayerRepository {
       team: player.team,
       points: player.points ?? 0,
       price: player.precio ?? 0,
+      image: player.image,
+      imageDetail: player.imageDetail,
     }));
 
     return players;
+  }
+
+  async getPlayerById(id: number): Promise<Player | null> {
+    const players = await this.getAllPlayers();
+    const player = players.find((p) => p.id === id) || null;
+    return player;
   }
 }

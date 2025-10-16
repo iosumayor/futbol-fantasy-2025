@@ -2,4 +2,5 @@ import { Player } from "./Players";
 
 export interface PlayerRepository {
   getAllPlayers(): Promise<Player[]>;
+  getPlayerById(id: number): Promise<Player | null>;
 }

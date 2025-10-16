@@ -5,4 +5,6 @@ export interface Player {
   team: string;
   points: number;
   price: number;
+  image?: string;
+  imageDetail?: string;
 }

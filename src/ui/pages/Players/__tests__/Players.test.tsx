@@ -14,6 +14,10 @@ const mockPlayers = [
     name: "Pedri",
     id: 2,
     position: "Centrocampista",
+    image:
+      "https://assets.laliga.com/squad/2025/t178/p77318/128x128/p77318_t178_2025_1_002_000.jpg",
+    imageDetail:
+      "https://r2.thesportsdb.com/images/media/player/render/agtip81658424227.png/small",
   }),
 ];
 
@@ -90,6 +94,19 @@ describe("en la página de Players", () => {
     const rowsDesc = screen.getAllByRole("row");
     expect(rowsDesc[1]).toHaveTextContent("Jugador Caro");
     expect(rowsDesc[2]).toHaveTextContent("Jugador Barato");
+  });
+
+  it("debería mostrar la imagen del jugador si está disponible", () => {
+    setupPlayersTest();
+
+    expect(screen.getByRole("img", { name: "Modric" })).toHaveAttribute(
+      "src",
+      "https://assets.laliga.com/squad/2025/t178/p77318/128x128/p77318_t178_2025_1_002_000.jpg",
+    );
+    expect(screen.getByRole("img", { name: "Pedri" })).toHaveAttribute(
+      "src",
+      "https://assets.laliga.com/squad/2025/t178/p77318/128x128/p77318_t178_2025_1_002_000.jpg",
+    );
   });
 
   it("muestra el estado de carga (isLoading)", () => {
