@@ -1,0 +1,109 @@
+.container {
+  max-width: 100%;
+  margin: 2rem auto;
+  background: #232526;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #00ffb3;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+input {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #0097e6;
+  background: #181a1b;
+  color: #fff;
+  font-size: 1rem;
+  transition: border 0.2s;
+  -webkit-box-shadow: 0 0 0 1000px #181a1b inset !important;
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus {
+  border-color: #00ffb3;
+  outline: none;
+}
+
+.inputWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.showPasswordButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #0097e6;
+  padding: 0 0.3rem;
+  transition: color 0.2s;
+}
+
+.showPasswordButton:hover,
+.showPasswordButton:focus {
+  color: #00ffb3;
+  outline: none;
+}
+
+.error {
+  color: #ff4f4f;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+
+.nextButton,
+.submitButton {
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  background: #00ffb3;
+  color: #232526;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.nextButton:hover,
+.nextButton:focus,
+.submitButton:hover,
+.submitButton:focus {
+  background: #0097e6;
+  color: #fff;
+  outline: none;
+}
