@@ -1,41 +1,117 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { FormularioEntrada } from "../FormularioEntrada";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
+
+// Mock global para useNavigate
+const mockNavigate = vi.fn();
+vi.mock("react-router-dom", () => ({
+  ...vi.importActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("FormularioEntrada", () => {
-  it("renderiza todos los campos y el botón", () => {
-    render(<FormularioEntrada />);
-    expect(screen.getByLabelText(/nombre/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/correo/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/tel[eé]fono/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /enviar/i })).toBeInTheDocument();
+  beforeEach(() => {
+    mockNavigate.mockClear();
+    vi.restoreAllMocks();
   });
 
-  it("muestra error si el nombre está vacío", async () => {
+  it("renderiza todos los campos y el botón en el paso 1", () => {
     render(<FormularioEntrada />);
-    await userEvent.click(screen.getByRole("button", { name: /enviar/i }));
+    expect(screen.getByLabelText("Nombre:")).toBeInTheDocument();
+    expect(screen.getByLabelText("Teléfono (opcional):")).toBeInTheDocument();
+    expect(screen.getByLabelText("Email:")).toBeInTheDocument();
+    expect(screen.getByLabelText("Contraseña:")).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Confirmación de Contraseña:"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /siguiente/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("muestra error si el nombre está vacío al pulsar Siguiente", async () => {
+    render(<FormularioEntrada />);
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
     expect(
       await screen.findByText(/nombre es obligatorio/i),
     ).toBeInTheDocument();
   });
 
-  it("muestra error si el correo no es válido", async () => {
+  it("muestra error si el email no es válido al pulsar Siguiente", async () => {
     render(<FormularioEntrada />);
-    await userEvent.type(screen.getByLabelText(/correo/i), "correo-invalido");
-    await userEvent.click(screen.getByRole("button", { name: /enviar/i }));
-    expect(await screen.findByText(/correo no válido/i)).toBeInTheDocument();
+    await userEvent.type(screen.getByLabelText("Email:"), "correo-invalido");
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
+    expect(await screen.findByText(/email no válido/i)).toBeInTheDocument();
   });
 
-  it("envía el formulario si todos los datos son válidos", async () => {
-    const handleSubmit = vi.fn();
-    render(<FormularioEntrada onSubmit={handleSubmit} />);
-    await userEvent.type(screen.getByLabelText(/nombre/i), "Juan");
-    await userEvent.type(screen.getByLabelText(/correo/i), "juan@mail.com");
-    await userEvent.type(screen.getByLabelText(/tel[eé]fono/i), "600123456");
-    await userEvent.type(screen.getByLabelText(/email/i), "juan@mail.com");
+  it("muestra error si las contraseñas no coinciden al pulsar Siguiente", async () => {
+    render(<FormularioEntrada />);
+    await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
+    await userEvent.type(
+      screen.getByLabelText("Confirmación de Contraseña:"),
+      "123456",
+    );
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
+    expect(
+      await screen.findByText(/contraseñas no coinciden/i),
+    ).toBeInTheDocument();
+  });
+
+  it("avanza al paso 2 si los datos del paso 1 son válidos", async () => {
+    render(<FormularioEntrada />);
+    await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
+    await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
+    await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
+    await userEvent.type(
+      screen.getByLabelText("Confirmación de Contraseña:"),
+      "abcdef",
+    );
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
+    expect(screen.getByLabelText("Nombre del Equipo:")).toBeInTheDocument();
+    expect(screen.getByLabelText("Nombre de Usuario:")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /enviar/i })).toBeInTheDocument();
+  });
+
+  it("muestra error si el nombre de equipo está vacío en el paso 2", async () => {
+    render(<FormularioEntrada />);
+    // Paso 1 válido
+    await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
+    await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
+    await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
+    await userEvent.type(
+      screen.getByLabelText("Confirmación de Contraseña:"),
+      "abcdef",
+    );
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
+    // Paso 2 error
     await userEvent.click(screen.getByRole("button", { name: /enviar/i }));
-    expect(handleSubmit).toHaveBeenCalled();
+    expect(
+      await screen.findByText(/nombre del equipo es obligatorio/i),
+    ).toBeInTheDocument();
+  });
+
+  it("envía el formulario y navega si todos los datos son válidos", async () => {
+    render(<FormularioEntrada />);
+    // Paso 1
+    await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
+    await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
+    await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
+    await userEvent.type(
+      screen.getByLabelText("Confirmación de Contraseña:"),
+      "abcdef",
+    );
+    await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
+    // Paso 2
+    await userEvent.type(
+      screen.getByLabelText("Nombre del Equipo:"),
+      "Equipo1",
+    );
+    await userEvent.type(
+      screen.getByLabelText("Nombre de Usuario:"),
+      "usuario1",
+    );
+    await userEvent.click(screen.getByRole("button", { name: /enviar/i }));
+    expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 });
