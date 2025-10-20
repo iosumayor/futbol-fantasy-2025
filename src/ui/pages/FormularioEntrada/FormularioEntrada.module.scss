@@ -84,7 +84,8 @@ input:focus {
 }
 
 .nextButton,
-.submitButton {
+.submitButton,
+.backButton {
   margin-top: 1.2rem;
   padding: 0.7rem 1.5rem;
   border-radius: 6px;
@@ -102,8 +103,17 @@ input:focus {
 .nextButton:hover,
 .nextButton:focus,
 .submitButton:hover,
-.submitButton:focus {
+.submitButton:focus,
+.backButton:hover,
+.backButton:focus {
   background: #0097e6;
   color: #fff;
   outline: none;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
