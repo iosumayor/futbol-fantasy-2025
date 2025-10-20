@@ -1,37 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import styles from "./FormularioEntrada.module.scss";
 import { useNavigate } from "react-router-dom";
-
-// Schema paso 1
-const step1Schema = z
-  .object({
-    nombre: z.string().min(1, "El nombre es obligatorio"),
-    telefono: z.string().optional(),
-    email: z
-      .string()
-      .min(1, "El email es obligatorio")
-      .email("Email no válido"),
-    contraseña: z
-      .string()
-      .min(6, "La contraseña debe tener al menos 6 caracteres"),
-    confirmacionContraseña: z.string(),
-  })
-  .refine((data) => data.contraseña === data.confirmacionContraseña, {
-    message: "Las contraseñas no coinciden",
-    path: ["confirmacionContraseña"],
-  });
-
-// Schema paso 2
-const step2Schema = z.object({
-  nombreEquipo: z.string().min(2, "El nombre del equipo es obligatorio"),
-  nombreUsuario: z.string().min(2, "El nombre de usuario es obligatorio"),
-});
-
-type Step1Data = z.infer<typeof step1Schema>;
-type Step2Data = z.infer<typeof step2Schema>;
+import { step1Schema, Step1Data } from "./step1.schema";
+import { step2Schema, Step2Data } from "./step2.schema";
 
 export const FormularioEntrada: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -68,6 +41,12 @@ export const FormularioEntrada: React.FC = () => {
     setHasTriedNext(true);
     const valid = await step1Form.trigger();
     if (valid) setStep(1);
+  };
+
+  // Paso 2: Atrás
+  const handleBack = () => {
+    setStep(0);
+    step1Form.clearErrors();
   };
 
   // Paso 2: Enviar
@@ -201,7 +180,7 @@ export const FormularioEntrada: React.FC = () => {
             <button
               type="button"
               className={styles.backButton}
-              onClick={() => setStep(0)}
+              onClick={handleBack}
               disabled={step2Form.formState.isSubmitting}
             >
               Atrás
