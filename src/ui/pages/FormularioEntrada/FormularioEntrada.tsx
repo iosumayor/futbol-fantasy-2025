@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import styles from "./FormularioEntrada.module.scss";
+import { useNavigate } from "react-router-dom";
 
 // Schema paso 1
 const step1Schema = z
@@ -37,6 +38,7 @@ export const FormularioEntrada: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [hasTriedNext, setHasTriedNext] = useState(false);
+  const navigate = useNavigate();
 
   // Paso 1
   const step1Form = useForm<Step1Data>({
@@ -74,6 +76,7 @@ export const FormularioEntrada: React.FC = () => {
     const allData = { ...step1Data, ...data };
     console.log("Datos enviados:", allData);
     alert("Formulario enviado correctamente");
+    navigate("/");
   };
 
   return (
