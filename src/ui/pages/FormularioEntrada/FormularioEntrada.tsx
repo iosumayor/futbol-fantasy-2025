@@ -54,7 +54,6 @@ export const FormularioEntrada: React.FC = () => {
     const step1Data = step1Form.getValues();
     const allData = { ...step1Data, ...data };
     console.log("Datos enviados:", allData);
-    alert("Formulario enviado correctamente");
     navigate("/");
   };
 
