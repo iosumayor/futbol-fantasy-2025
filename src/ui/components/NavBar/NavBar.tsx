@@ -1,28 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@core/auth/useAuth";
 import styles from "./NavBar.module.scss";
 
 export const NavBar: React.FC = () => {
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <Link to="/" className={styles.navButton}>
+          <button className={styles.navButton} onClick={() => navigate("/")}>
             Pagina de Inicio
-          </Link>
+          </button>
         </li>
         <li>
-          <Link to="/players" className={styles.navButton}>
+          <button
+            className={styles.navButton}
+            onClick={() => navigate("/players")}
+          >
             Jugadores
-          </Link>
+          </button>
         </li>
         {isAuthenticated && (
           <li>
-            <Link to="/crear-tu-liga" className={styles.navButton}>
+            <button
+              className={styles.navButton}
+              onClick={() => navigate("/crear-tu-liga")}
+            >
               Crear Tu Liga
-            </Link>
+            </button>
           </li>
         )}
       </ul>
