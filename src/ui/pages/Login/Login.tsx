@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import z from "zod";
+import styles from "./Login.module.scss";
 
 const loginSchema = z.object({
   usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
@@ -11,7 +12,6 @@ const loginSchema = z.object({
     .min(6, "La contraseña debe tener al menos 6 caracteres"),
 });
 
-///TODO: Modificar posteriormente
 const MOCK_USER = {
   usuario: "testuser",
   contraseña: "password123",
@@ -45,20 +45,24 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div>
+    <div className={styles.loginContainer}>
+      <h2 className={styles.title}>Iniciar sesión</h2>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
+        <div className={styles.field}>
           <label htmlFor="usuario">Usuario</label>
           <input type="text" id="usuario" {...register("usuario")} />
           {errors.usuario && <span>{errors.usuario.message}</span>}
         </div>
-        <div>
+        <div className={styles.field}>
           <label htmlFor="contraseña">Contraseña</label>
           <input type="password" id="contraseña" {...register("contraseña")} />
           {errors.contraseña && <span>{errors.contraseña.message}</span>}
         </div>
-        <button type="submit" disabled={isSubmitting}>
+        <button className={styles.button} type="submit" disabled={isSubmitting}>
           Iniciar sesión
         </button>
       </form>
