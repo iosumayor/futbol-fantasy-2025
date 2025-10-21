@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import App from "../../../../App";
 
-describe("en el componente NavBar", () => {
+describe("en el componente Home", () => {
   it("muestra la página de inicio por defecto", () => {
     render(<App />);
     expect(screen.getByRole("heading", { name: "Home" })).toBeInTheDocument();
