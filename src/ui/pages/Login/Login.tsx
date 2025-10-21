@@ -11,6 +11,7 @@ const loginSchema = z.object({
     .min(6, "La contraseña debe tener al menos 6 caracteres"),
 });
 
+///TODO: Modificar posteriormente
 const MOCK_USER = {
   usuario: "testuser",
   contraseña: "password123",
@@ -48,13 +49,13 @@ export const Login: React.FC = () => {
       <h2>Iniciar sesión</h2>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div>
-          <label htmlFor="Usuario">Usuario</label>
-          <input type="text" id="Usuario" {...register("usuario")} />
+          <label htmlFor="usuario">Usuario</label>
+          <input type="text" id="usuario" {...register("usuario")} />
           {errors.usuario && <span>{errors.usuario.message}</span>}
         </div>
         <div>
-          <label htmlFor="Contraseña">Contraseña</label>
-          <input type="password" id="Contraseña" {...register("contraseña")} />
+          <label htmlFor="contraseña">Contraseña</label>
+          <input type="password" id="contraseña" {...register("contraseña")} />
           {errors.contraseña && <span>{errors.contraseña.message}</span>}
         </div>
         <button type="submit" disabled={isSubmitting}>
