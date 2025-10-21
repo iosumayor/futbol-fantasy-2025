@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@core/auth/useAuth";
 import styles from "./NavBar.module.scss";
 
 export const NavBar: React.FC = () => {
+  const { isAuthenticated } = useAuth();
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
@@ -16,6 +18,13 @@ export const NavBar: React.FC = () => {
             Jugadores
           </Link>
         </li>
+        {isAuthenticated && (
+          <li>
+            <Link to="/crear-tu-liga" className={styles.navButton}>
+              Crear Tu Liga
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
