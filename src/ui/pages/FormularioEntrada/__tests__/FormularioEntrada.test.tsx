@@ -1,14 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { FormularioEntrada } from "../FormularioEntrada";
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import { renderWithRouter } from "@test-utils/renderWithRouter";
 
 // Mock global para useNavigate
 const mockNavigate = vi.fn();
-vi.mock("react-router-dom", () => ({
-  ...vi.importActual("react-router-dom"),
-  useNavigate: () => mockNavigate,
-}));
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+  };
+});
 
 describe("en el FormularioEntrada", () => {
   beforeEach(() => {
@@ -18,7 +22,7 @@ describe("en el FormularioEntrada", () => {
 
   it("renderiza todos los campos y el botón en el paso 1", () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act: nada que hacer, solo render
     // Assert
     expect(screen.getByLabelText("Nombre:")).toBeInTheDocument();
@@ -35,7 +39,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si el nombre está vacío", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act
     await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
     // Assert
@@ -46,7 +50,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si el email no es válido", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act
     await userEvent.type(screen.getByLabelText("Email:"), "correo-invalido");
     await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
@@ -56,7 +60,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si la contraseña es menor de 6 caracteres", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act
     await userEvent.type(screen.getByLabelText("Contraseña:"), "123");
     await userEvent.click(screen.getByRole("button", { name: /siguiente/i }));
@@ -68,7 +72,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si las contraseñas no coinciden", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act
     await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
     await userEvent.type(
@@ -84,7 +88,7 @@ describe("en el FormularioEntrada", () => {
 
   it("avanza al paso 2 si los datos del paso 1 son válidos", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     // Act
     await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
     await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
@@ -102,7 +106,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si el nombre de equipo está vacío en el paso 2", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
     await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
     await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
@@ -121,7 +125,7 @@ describe("en el FormularioEntrada", () => {
 
   it("muestra error si el nombre de usuario está vacío en el paso 2", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
     await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
     await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
@@ -144,7 +148,7 @@ describe("en el FormularioEntrada", () => {
 
   it("envía el formulario y navega si todos los datos son válidos", async () => {
     // Arrange
-    render(<FormularioEntrada />);
+    renderWithRouter(<FormularioEntrada />);
     await userEvent.type(screen.getByLabelText("Nombre:"), "Juan");
     await userEvent.type(screen.getByLabelText("Email:"), "juan@mail.com");
     await userEvent.type(screen.getByLabelText("Contraseña:"), "abcdef");
