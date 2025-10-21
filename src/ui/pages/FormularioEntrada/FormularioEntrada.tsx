@@ -5,6 +5,7 @@ import styles from "./FormularioEntrada.module.scss";
 import { useNavigate } from "react-router-dom";
 import { step1Schema, Step1Data } from "./step1.schema";
 import { step2Schema, Step2Data } from "./step2.schema";
+import { useAuth } from "@core/auth/useAuth";
 
 export const FormularioEntrada: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -12,6 +13,7 @@ export const FormularioEntrada: React.FC = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [hasTriedNext, setHasTriedNext] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // Paso 1
   const step1Form = useForm<Step1Data>({
@@ -55,6 +57,7 @@ export const FormularioEntrada: React.FC = () => {
     const allData = { ...step1Data, ...data };
     console.log("Datos enviados:", allData);
     navigate("/");
+    login();
   };
 
   return (
