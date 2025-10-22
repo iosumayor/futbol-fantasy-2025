@@ -1,5 +1,6 @@
 import { useAuth } from "@core/auth/useAuth";
 import React from "react";
+import { Title } from "@ui/components/Common/Title/Title";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.scss";
 
@@ -8,8 +9,8 @@ export const Home: React.FC = () => {
   const { logout, isAuthenticated } = useAuth();
   return (
     <div className={styles.homeContainer}>
-      <h2 className={styles.title}>Fantasy Futbol</h2>
-      <h2 className={styles.subtitle}>Home</h2>
+      <Title level={1}>Fantasy Futbol</Title>
+      <Title level={2}>Home</Title>
       <div className={styles.buttonGroup}>
         <button
           className={styles.button}
