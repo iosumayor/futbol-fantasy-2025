@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { step1Schema, Step1Data } from "./step1.schema";
 import { step2Schema, Step2Data } from "./step2.schema";
 import { useAuth } from "@core/auth/useAuth";
+import { Title } from "@ui/components/Common/Title/Title";
 
 export const FormularioEntrada: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -62,7 +63,9 @@ export const FormularioEntrada: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Formulario de Entrada</h2>
+      <Title level={2} align="center">
+        Formulario de Entrada
+      </Title>
       {step === 0 && (
         <form className={styles.form} noValidate>
           <div className={styles.field}>
