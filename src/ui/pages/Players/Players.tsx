@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Players.module.scss";
 import { usePlayers } from "../../../core/services/playersService";
 import { Player } from "@core/domain/Players";
+import { Title } from "@ui/components/Common/Title/Title";
 
 export const Players: React.FC = () => {
   const { data: players, isLoading, isError } = usePlayers();
@@ -43,7 +44,9 @@ export const Players: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Listado Jugadores</h2>
+      <Title level={1} align="center">
+        Listado Jugadores
+      </Title>
       <div className={styles.filters}>
         <input
           type="text"
