@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import z from "zod";
 import styles from "./Login.module.scss";
+import { Title } from "@ui/components/Common/Title/Title";
 
 const loginSchema = z.object({
   usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
@@ -46,7 +47,9 @@ export const Login: React.FC = () => {
 
   return (
     <div className={styles.loginContainer}>
-      <h2 className={styles.title}>Iniciar sesión</h2>
+      <Title level={1} align="center">
+        Iniciar sesión
+      </Title>
       <form
         className={styles.form}
         onSubmit={handleSubmit(onSubmit)}
