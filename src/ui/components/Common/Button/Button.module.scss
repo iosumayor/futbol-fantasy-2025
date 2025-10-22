@@ -1,0 +1,27 @@
+.blueButton {
+  padding: 0.7rem 1.5rem;
+  background: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: #2563eb;
+  }
+}
+
+.redButton {
+  padding: 0.7rem 1.5rem;
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: #c53030;
+  }
+}
