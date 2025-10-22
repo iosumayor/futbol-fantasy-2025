@@ -2,6 +2,7 @@ import { useAuth } from "@core/auth/useAuth";
 import React from "react";
 import { Title } from "@ui/components/Common/Title/Title";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@ui/components/Common/Button/Button";
 import styles from "./Home.module.scss";
 
 export const Home: React.FC = () => {
@@ -12,22 +13,16 @@ export const Home: React.FC = () => {
       <Title level={1}>Fantasy Futbol</Title>
       <Title level={2}>Home</Title>
       <div className={styles.buttonGroup}>
-        <button
-          className={styles.button}
-          onClick={() => navigate("/formulario-entrada")}
-        >
+        <Button variant="blue" onClick={() => navigate("/formulario-entrada")}>
           Crear usuario
-        </button>
-        <button className={styles.button} onClick={() => navigate("/login")}>
+        </Button>
+        <Button variant="blue" onClick={() => navigate("/login")}>
           Iniciar sesión
-        </button>
+        </Button>
         {isAuthenticated && (
-          <button
-            className={`${styles.button} ${styles.logoutButton}`}
-            onClick={() => logout()}
-          >
+          <Button variant="red" onClick={() => logout()}>
             Cerrar sesión
-          </button>
+          </Button>
         )}
       </div>
     </div>
