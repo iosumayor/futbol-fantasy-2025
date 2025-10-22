@@ -2,6 +2,7 @@ import { usePlayer } from "@core/services/playersService";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./PlayerDetails.module.scss";
+import { Title } from "@ui/components/Common/Title/Title";
 
 export const PlayerDetails: React.FC = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ export const PlayerDetails: React.FC = () => {
               alt={player.name}
             />
           )}
-          <h1 className={styles.playerName}>{player?.name}</h1>
+          <Title level={2}>{player?.name}</Title>
         </div>
         <div className={styles.right}>
           <p>Posición: {player?.position}</p>
