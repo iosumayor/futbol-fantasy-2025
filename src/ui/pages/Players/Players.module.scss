@@ -28,8 +28,7 @@
   }
 }
 
-.filters input,
-.filters button {
+.filters input {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   border: 1px solid #222;
@@ -44,20 +43,6 @@
 .filters input:focus {
   border-color: #00ffb3;
   outline: none;
-}
-
-.filters button {
-  background: #00ffb3;
-  color: #181a1b;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
-}
-
-.filters button.active {
-  background: #0097e6;
-  color: #fff;
 }
 
 .table {
@@ -139,45 +124,6 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0.5rem;
-  }
-}
-
-.positionFilters button {
-  min-width: 110px;
-  margin: 0;
-  padding: 0.5rem 0.8rem;
-  border-radius: 6px;
-  border: none;
-  background: #232526;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    box-shadow 0.2s;
-  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
-
-  @include mixins.mobile {
-    min-width: unset;
-    width: 100%;
-  }
-}
-
-.positionFilters button.active {
-  background: #00ffb3;
-  color: #181a1b;
-  box-shadow: 0 2px 8px rgba(0, 255, 179, 0.12);
-}
-
-.positionFilters button:last-child {
-  margin-left: 1rem;
-  background: #0097e6;
-  color: #fff;
-
-  @include mixins.mobile {
-    margin-left: 0;
   }
 }
 

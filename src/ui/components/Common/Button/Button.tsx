@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.scss";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "blue" | "red" | "navBar";
+  variant?: "blue" | "red" | "navBar" | "black" | "green";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -15,6 +15,8 @@ export const Button: React.FC<ButtonProps> = ({
     blue: styles.blueButton,
     red: styles.redButton,
     navBar: styles.navButton,
+    black: styles.blackButton,
+    green: styles.greenButton,
   };
 
   const buttonClass = variantClassMap[variant] ?? styles.blueButton; // Default to blueButton if variant not found

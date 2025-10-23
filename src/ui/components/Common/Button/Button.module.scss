@@ -50,3 +50,32 @@
     color: #fff;
   }
 }
+
+.blackButton {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #222;
+  font-size: 1rem;
+  background: #232526;
+  color: #fff;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.greenButton {
+  padding: 0.7rem 1.5rem;
+  background: #00ffb3;
+  color: #181a1b;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  transition: background 0.2s;
+
+  &:hover {
+    background: #00e6a1;
+  }
+}
