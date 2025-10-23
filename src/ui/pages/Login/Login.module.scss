@@ -47,21 +47,3 @@ span {
   font-size: 0.95rem;
   margin-top: 0.2rem;
 }
-
-.button {
-  padding: 0.7rem 1.5rem;
-  background: #3182ce;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-  &:hover {
-    background: #2563eb;
-  }
-  &:disabled {
-    background: #a0aec0;
-    cursor: not-allowed;
-  }
-}

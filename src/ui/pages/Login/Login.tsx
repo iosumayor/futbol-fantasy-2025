@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import z from "zod";
 import styles from "./Login.module.scss";
 import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
 
 const loginSchema = z.object({
   usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
@@ -65,9 +66,9 @@ export const Login: React.FC = () => {
           <input type="password" id="contraseña" {...register("contraseña")} />
           {errors.contraseña && <span>{errors.contraseña.message}</span>}
         </div>
-        <button className={styles.button} type="submit" disabled={isSubmitting}>
+        <Button variant="blue" type="submit" disabled={isSubmitting}>
           Iniciar sesión
-        </button>
+        </Button>
       </form>
     </div>
   );
