@@ -58,9 +58,15 @@
   font-size: 1rem;
   background: #232526;
   color: #fff;
+  cursor: pointer;
   transition:
     box-shadow 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    background 0.2s;
+  &:hover {
+    background: #181a1b;
+    border-color: #181a1b;
+  }
 }
 
 .greenButton {
@@ -74,8 +80,7 @@
   font-weight: 600;
   box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
   transition: background 0.2s;
-
   &:hover {
-    background: #00e6a1;
+    background: #00cc8e;
   }
 }
