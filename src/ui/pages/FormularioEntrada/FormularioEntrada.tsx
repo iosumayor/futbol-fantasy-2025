@@ -7,6 +7,7 @@ import { step1Schema, Step1Data } from "./step1.schema";
 import { step2Schema, Step2Data } from "./step2.schema";
 import { useAuth } from "@core/auth/useAuth";
 import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
 
 export const FormularioEntrada: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -143,14 +144,14 @@ export const FormularioEntrada: React.FC = () => {
             )}
           </div>
           <div className={styles.actionButtons}>
-            <button
+            <Button
               type="button"
-              className={styles.nextButton}
+              variant="green"
               onClick={handleNext}
               disabled={step1Form.formState.isSubmitting}
             >
               Siguiente
-            </button>
+            </Button>
           </div>
         </form>
       )}
@@ -182,21 +183,21 @@ export const FormularioEntrada: React.FC = () => {
             )}
           </div>
           <div className={styles.actionButtons}>
-            <button
+            <Button
               type="button"
-              className={styles.backButton}
+              variant="blue"
               onClick={handleBack}
               disabled={step2Form.formState.isSubmitting}
             >
               Atrás
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
-              className={styles.submitButton}
+              variant="green"
               disabled={step2Form.formState.isSubmitting}
             >
               {step2Form.formState.isSubmitting ? "Enviando..." : "Enviar"}
-            </button>
+            </Button>
           </div>
         </form>
       )}

@@ -75,34 +75,6 @@ input:focus {
   margin-top: 0.2rem;
 }
 
-.nextButton,
-.submitButton,
-.backButton {
-  margin-top: 1.2rem;
-  padding: 0.7rem 1.5rem;
-  border-radius: 6px;
-  background: #00ffb3;
-  color: #232526;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-  transition:
-    background 0.2s,
-    color 0.2s;
-}
-
-.nextButton:hover,
-.nextButton:focus,
-.submitButton:hover,
-.submitButton:focus,
-.backButton:hover,
-.backButton:focus {
-  background: #0097e6;
-  color: #fff;
-  outline: none;
-}
-
 .actionButtons {
   display: flex;
   justify-content: space-between;
