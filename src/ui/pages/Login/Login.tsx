@@ -6,6 +6,7 @@ import z from "zod";
 import styles from "./Login.module.scss";
 import { Title } from "@ui/components/Common/Title/Title";
 import { Button } from "@ui/components/Common/Button/Button";
+import { Field } from "@ui/components/Common/Field/Field";
 
 const loginSchema = z.object({
   usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
@@ -32,6 +33,10 @@ export const Login: React.FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
+    defaultValues: {
+      usuario: "",
+      contraseña: "",
+    },
   });
 
   const onSubmit = async (data: LoginFormData) => {
@@ -56,16 +61,18 @@ export const Login: React.FC = () => {
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
-        <div className={styles.field}>
-          <label htmlFor="usuario">Usuario</label>
-          <input type="text" id="usuario" {...register("usuario")} />
-          {errors.usuario && <span>{errors.usuario.message}</span>}
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="contraseña">Contraseña</label>
-          <input type="password" id="contraseña" {...register("contraseña")} />
-          {errors.contraseña && <span>{errors.contraseña.message}</span>}
-        </div>
+        <Field
+          label="Usuario"
+          type="text"
+          error={errors.usuario?.message}
+          {...register("usuario")}
+        />
+        <Field
+          label="Contraseña"
+          type="password"
+          error={errors.contraseña?.message}
+          {...register("contraseña")}
+        />
         <Button variant="blue" type="submit" disabled={isSubmitting}>
           Iniciar sesión
         </Button>
