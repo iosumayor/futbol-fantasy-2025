@@ -14,14 +14,16 @@ export const PlayerDetails: React.FC = () => {
   if (isError) return <div>Error al cargar detalles del jugador</div>;
   return (
     <>
-      <Button
-        variant="green"
-        type="button"
-        onClick={() => navigate("/players")}
-        aria-label="Volver al listado de jugadores"
-      >
-        ← Volver al listado de jugadores
-      </Button>
+      <div className={styles.buttonRight}>
+        <Button
+          variant="green"
+          type="button"
+          onClick={() => navigate("/players")}
+          aria-label="Volver al listado de jugadores"
+        >
+          ← Volver al listado de jugadores
+        </Button>
+      </div>
       <div className={styles.detailsContainer}>
         <div className={styles.left}>
           {player?.imageDetail && (
