@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./PlayerDetails.module.scss";
 import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
 
 export const PlayerDetails: React.FC = () => {
   const { id } = useParams();
@@ -13,14 +14,14 @@ export const PlayerDetails: React.FC = () => {
   if (isError) return <div>Error al cargar detalles del jugador</div>;
   return (
     <>
-      <button
-        className={styles.returnButton}
+      <Button
+        variant="green"
         type="button"
         onClick={() => navigate("/players")}
         aria-label="Volver al listado de jugadores"
       >
         ← Volver al listado de jugadores
-      </button>
+      </Button>
       <div className={styles.detailsContainer}>
         <div className={styles.left}>
           {player?.imageDetail && (

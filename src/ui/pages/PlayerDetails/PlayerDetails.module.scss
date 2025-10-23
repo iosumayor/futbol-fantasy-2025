@@ -33,25 +33,3 @@
   flex-direction: column;
   gap: 0.7rem;
 }
-
-.returnButton {
-  align-self: flex-start;
-  margin-bottom: 1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  background: #00ffb3;
-  color: black;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background: #0097e6;
-    color: #fff;
-    outline: none;
-    box-shadow: 0 2px 8px rgba(0, 151, 230, 0.12);
-  }
-}
