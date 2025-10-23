@@ -142,7 +142,7 @@ export const FormularioEntrada: React.FC = () => {
               </span>
             )}
           </div>
-          <div className={styles.actions}>
+          <div className={styles.actionButtons}>
             <button
               type="button"
               className={styles.nextButton}
