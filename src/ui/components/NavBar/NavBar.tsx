@@ -11,24 +11,18 @@ export const NavBar: React.FC = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <Button className={styles.navButton} onClick={() => navigate("/")}>
+          <Button variant="navBar" onClick={() => navigate("/")}>
             Pagina de Inicio
           </Button>
         </li>
         <li>
-          <Button
-            className={styles.navButton}
-            onClick={() => navigate("/players")}
-          >
+          <Button variant="navBar" onClick={() => navigate("/players")}>
             Jugadores
           </Button>
         </li>
         {isAuthenticated && (
           <li>
-            <Button
-              className={styles.navButton}
-              onClick={() => navigate("/crear-tu-liga")}
-            >
+            <Button variant="navBar" onClick={() => navigate("/crear-tu-liga")}>
               Crear Tu Liga
             </Button>
           </li>
