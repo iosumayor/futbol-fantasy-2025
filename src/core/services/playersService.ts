@@ -3,7 +3,7 @@ import { JsonPlayersRepository } from "../infrastructure/JsonPlayersRepository";
 
 const repo = new JsonPlayersRepository();
 
-export function usePlayers() {
+export function useAllPlayers() {
   return useQuery({
     queryKey: ["players"],
     queryFn: () => repo.getAllPlayers(),
