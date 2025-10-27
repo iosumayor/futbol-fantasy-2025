@@ -32,7 +32,7 @@ export const NavBar: React.FC = () => {
             </li>
             <li>
               <Button variant="navBar" onClick={() => navigate("/mi-liga")}>
-                Mi Ligas
+                Mis Ligas
               </Button>
             </li>
           </>

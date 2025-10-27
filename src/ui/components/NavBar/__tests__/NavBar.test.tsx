@@ -47,7 +47,7 @@ describe("en el componente NavBar", () => {
     expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 
-  it("debería mostrar el botón 'Crear Tu Liga' si el usuario está autenticado", () => {
+  it("debería mostrar el botón 'Crear Tu Liga' y 'Mi Ligas' si el usuario está autenticado", () => {
     // Arrange
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
@@ -58,12 +58,16 @@ describe("en el componente NavBar", () => {
     renderWithRouter(<NavBar />);
     // Act
     const crearTuLigaButton = screen.getByRole("button", {
-      name: /crear tu liga/i,
+      name: "Crear Tu Liga",
+    });
+    const misLigasButton = screen.getByRole("button", {
+      name: "Mis Ligas",
     });
     // Assert
     expect(crearTuLigaButton).toBeInTheDocument();
+    expect(misLigasButton).toBeInTheDocument();
   });
-  it("no debería mostrar el botón 'Crear Tu Liga' si el usuario no está autenticado", () => {
+  it("no debería mostrar el botón 'Crear Tu Liga' y 'Mis Ligas' si el usuario no está autenticado", () => {
     // Arrange
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
@@ -74,10 +78,14 @@ describe("en el componente NavBar", () => {
     renderWithRouter(<NavBar />);
     // Act
     const crearTuLigaButton = screen.queryByRole("button", {
-      name: /crear tu liga/i,
+      name: "Crear Tu Liga",
+    });
+    const misLigasButton = screen.queryByRole("button", {
+      name: "Mis Ligas",
     });
     // Assert
     expect(crearTuLigaButton).not.toBeInTheDocument();
+    expect(misLigasButton).not.toBeInTheDocument();
   });
 
   it("debería ir a la pagina de 'Crear Tu Liga' al hacer click en el botón correspondiente", async () => {
@@ -96,5 +104,22 @@ describe("en el componente NavBar", () => {
     await userEvent.click(crearTuLigaButton);
     // Assert
     expect(mockNavigate).toHaveBeenCalledWith("/crear-tu-liga");
+  });
+  it("debería ir a la pagina de 'Mis Ligas' al hacer click en el botón correspondiente", async () => {
+    // Arrange
+    const useAuthMock = vi.spyOn(useAuth, "useAuth");
+    useAuthMock.mockReturnValue({
+      isAuthenticated: true,
+      login: vi.fn(),
+      logout: vi.fn(),
+    });
+    renderWithRouter(<NavBar />);
+    // Act
+    const misLigasButton = screen.getByRole("button", {
+      name: "Mis Ligas",
+    });
+    await userEvent.click(misLigasButton);
+    // Assert
+    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga");
   });
 });
