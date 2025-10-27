@@ -2,25 +2,11 @@ import { useAuth } from "@core/auth/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import z from "zod";
 import styles from "./Login.module.scss";
+import { loginSchema, LoginFormData, MOCK_USER } from "./schemas/login.schema";
 import { Title } from "@ui/components/Common/Title/Title";
 import { Button } from "@ui/components/Common/Button/Button";
 import { Field } from "@ui/components/Common/Field/Field";
-
-const loginSchema = z.object({
-  usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
-  contraseña: z
-    .string()
-    .min(6, "La contraseña debe tener al menos 6 caracteres"),
-});
-
-const MOCK_USER = {
-  usuario: "testuser",
-  contraseña: "password123",
-};
-
-type LoginFormData = z.infer<typeof loginSchema>;
 
 export const Login: React.FC = () => {
   const { login } = useAuth();
