@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { step1Schema, Step1Data } from "./step1.schema";
 import { step2Schema, Step2Data } from "./step2.schema";
 import { useAuth } from "@core/auth/useAuth";
+import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
+import { Field } from "@ui/components/Common/Field/Field";
 
 export const FormularioEntrada: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -62,92 +65,56 @@ export const FormularioEntrada: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Formulario de Entrada</h2>
+      <Title level={2} align="center">
+        Formulario de Entrada
+      </Title>
       {step === 0 && (
         <form className={styles.form} noValidate>
-          <div className={styles.field}>
-            <label htmlFor="nombre">Nombre:</label>
-            <input id="nombre" {...step1Form.register("nombre")} />
-            {step1Form.formState.errors.nombre && (
-              <span className={styles.error}>
-                {step1Form.formState.errors.nombre.message}
-              </span>
-            )}
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="telefono">Teléfono (opcional):</label>
-            <input id="telefono" {...step1Form.register("telefono")} />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="email">Email:</label>
-            <input id="email" type="email" {...step1Form.register("email")} />
-            {step1Form.formState.errors.email && (
-              <span className={styles.error}>
-                {step1Form.formState.errors.email.message}
-              </span>
-            )}
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="contraseña">Contraseña:</label>
-            <div className={styles.inputWithIcon}>
-              <input
-                id="contraseña"
-                type={showPassword ? "text" : "password"}
-                {...step1Form.register("contraseña")}
-              />
-              <button
-                type="button"
-                className={styles.showPasswordButton}
-                onClick={() => setShowPassword((v) => !v)}
-                aria-label={
-                  showPassword ? "Ocultar contraseña" : "Ver contraseña"
-                }
-              >
-                {showPassword ? "🙈" : "👁️"}
-              </button>
-            </div>
-            {step1Form.formState.errors.contraseña && (
-              <span className={styles.error}>
-                {step1Form.formState.errors.contraseña.message}
-              </span>
-            )}
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="confirmacionContraseña">
-              Confirmación de Contraseña:
-            </label>
-            <div className={styles.inputWithIcon}>
-              <input
-                id="confirmacionContraseña"
-                type={showConfirmPassword ? "text" : "password"}
-                {...step1Form.register("confirmacionContraseña")}
-              />
-              <button
-                type="button"
-                className={styles.showPasswordButton}
-                onClick={() => setShowConfirmPassword((v) => !v)}
-                aria-label={
-                  showConfirmPassword ? "Ocultar contraseña" : "Ver contraseña"
-                }
-              >
-                {showConfirmPassword ? "🙈" : "👁️"}
-              </button>
-            </div>
-            {step1Form.formState.errors.confirmacionContraseña && (
-              <span className={styles.error}>
-                {step1Form.formState.errors.confirmacionContraseña.message}
-              </span>
-            )}
-          </div>
-          <div className={styles.actions}>
-            <button
+          <Field
+            label="Nombre:"
+            id="nombre"
+            error={step1Form.formState.errors.nombre?.message}
+            {...step1Form.register("nombre")}
+          />
+          <Field
+            label="Teléfono (opcional):"
+            id="telefono"
+            {...step1Form.register("telefono")}
+          />
+          <Field
+            label="Email:"
+            id="email"
+            type="email"
+            error={step1Form.formState.errors.email?.message}
+            {...step1Form.register("email")}
+          />
+          <Field
+            label="Contraseña:"
+            id="contraseña"
+            type={showPassword ? "text" : "password"}
+            error={step1Form.formState.errors.contraseña?.message}
+            isPasswordField
+            onTogglePassword={() => setShowPassword((v) => !v)}
+            {...step1Form.register("contraseña")}
+          />
+          <Field
+            label="Confirmación de Contraseña:"
+            id="confirmacionContraseña"
+            type={showConfirmPassword ? "text" : "password"}
+            error={step1Form.formState.errors.confirmacionContraseña?.message}
+            isPasswordField
+            onTogglePassword={() => setShowConfirmPassword((v) => !v)}
+            {...step1Form.register("confirmacionContraseña")}
+          />
+          <div className={styles.actionButtons}>
+            <Button
               type="button"
-              className={styles.nextButton}
+              variant="green"
               onClick={handleNext}
               disabled={step1Form.formState.isSubmitting}
             >
               Siguiente
-            </button>
+            </Button>
           </div>
         </form>
       )}
@@ -157,43 +124,34 @@ export const FormularioEntrada: React.FC = () => {
           onSubmit={step2Form.handleSubmit(handleFinalSubmit)}
           noValidate
         >
-          <div className={styles.field}>
-            <label htmlFor="nombreEquipo">Nombre del Equipo:</label>
-            <input id="nombreEquipo" {...step2Form.register("nombreEquipo")} />
-            {step2Form.formState.errors.nombreEquipo && (
-              <span className={styles.error}>
-                {step2Form.formState.errors.nombreEquipo.message}
-              </span>
-            )}
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="nombreUsuario">Nombre de Usuario:</label>
-            <input
-              id="nombreUsuario"
-              {...step2Form.register("nombreUsuario")}
-            />
-            {step2Form.formState.errors.nombreUsuario && (
-              <span className={styles.error}>
-                {step2Form.formState.errors.nombreUsuario.message}
-              </span>
-            )}
-          </div>
+          <Field
+            label="Nombre del Equipo:"
+            id="nombreEquipo"
+            error={step2Form.formState.errors.nombreEquipo?.message}
+            {...step2Form.register("nombreEquipo")}
+          />
+          <Field
+            label="Nombre de Usuario:"
+            id="nombreUsuario"
+            error={step2Form.formState.errors.nombreUsuario?.message}
+            {...step2Form.register("nombreUsuario")}
+          />
           <div className={styles.actionButtons}>
-            <button
+            <Button
               type="button"
-              className={styles.backButton}
+              variant="blue"
               onClick={handleBack}
               disabled={step2Form.formState.isSubmitting}
             >
               Atrás
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
-              className={styles.submitButton}
+              variant="green"
               disabled={step2Form.formState.isSubmitting}
             >
               {step2Form.formState.isSubmitting ? "Enviando..." : "Enviar"}
-            </button>
+            </Button>
           </div>
         </form>
       )}

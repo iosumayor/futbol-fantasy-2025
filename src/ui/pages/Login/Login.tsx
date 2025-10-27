@@ -3,6 +3,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import z from "zod";
+import styles from "./Login.module.scss";
+import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
+import { Field } from "@ui/components/Common/Field/Field";
 
 const loginSchema = z.object({
   usuario: z.string().min(6, "El usuario debe tener al menos 6 caracteres"),
@@ -11,7 +15,6 @@ const loginSchema = z.object({
     .min(6, "La contraseña debe tener al menos 6 caracteres"),
 });
 
-///TODO: Modificar posteriormente
 const MOCK_USER = {
   usuario: "testuser",
   contraseña: "password123",
@@ -30,6 +33,10 @@ export const Login: React.FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
+    defaultValues: {
+      usuario: "",
+      contraseña: "",
+    },
   });
 
   const onSubmit = async (data: LoginFormData) => {
@@ -45,22 +52,30 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div>
-          <label htmlFor="usuario">Usuario</label>
-          <input type="text" id="usuario" {...register("usuario")} />
-          {errors.usuario && <span>{errors.usuario.message}</span>}
-        </div>
-        <div>
-          <label htmlFor="contraseña">Contraseña</label>
-          <input type="password" id="contraseña" {...register("contraseña")} />
-          {errors.contraseña && <span>{errors.contraseña.message}</span>}
-        </div>
-        <button type="submit" disabled={isSubmitting}>
+    <div className={styles.loginContainer}>
+      <Title level={1} align="center">
+        Iniciar sesión
+      </Title>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
+        <Field
+          label="Usuario"
+          type="text"
+          error={errors.usuario?.message}
+          {...register("usuario")}
+        />
+        <Field
+          label="Contraseña"
+          type="password"
+          error={errors.contraseña?.message}
+          {...register("contraseña")}
+        />
+        <Button variant="blue" type="submit" disabled={isSubmitting}>
           Iniciar sesión
-        </button>
+        </Button>
       </form>
     </div>
   );

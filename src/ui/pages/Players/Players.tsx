@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Players.module.scss";
 import { usePlayers } from "../../../core/services/playersService";
 import { Player } from "@core/domain/Players";
+import { Title } from "@ui/components/Common/Title/Title";
+import { Button } from "@ui/components/Common/Button/Button";
 
 export const Players: React.FC = () => {
   const { data: players, isLoading, isError } = usePlayers();
@@ -43,7 +45,9 @@ export const Players: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Listado Jugadores</h2>
+      <Title level={1} align="center">
+        Listado Jugadores
+      </Title>
       <div className={styles.filters}>
         <input
           type="text"
@@ -51,12 +55,12 @@ export const Players: React.FC = () => {
           value={nameFilter}
           onChange={(e) => setNameFilter(e.target.value)}
         />
-        <button
-          className={showTeamFilter ? styles.active : ""}
+        <Button
+          variant={showTeamFilter ? "green" : "blue"}
           onClick={() => setShowTeamFilter((prev) => !prev)}
         >
           {showTeamFilter ? "Ocultar filtro equipo" : "Filtrar por equipo"}
-        </button>
+        </Button>
         {showTeamFilter && (
           <input
             type="text"
@@ -65,21 +69,21 @@ export const Players: React.FC = () => {
             onChange={(e) => setTeamFilter(e.target.value)}
           />
         )}
-        <button
-          className={showPositionFilter ? styles.active : ""}
+        <Button
+          variant={showPositionFilter ? "green" : "blue"}
           onClick={() => setShowPositionFilter((prev) => !prev)}
         >
           {showPositionFilter
             ? "Ocultar filtro posición"
             : "Filtrar por posición"}
-        </button>
+        </Button>
         {showPositionFilter && (
           <div className={styles.positionFilters}>
             {["Portero", "Defensa", "Centrocampista", "Delantero"].map(
               (pos) => (
-                <button
+                <Button
+                  variant={positionFilter === pos ? "blue" : "black"}
                   key={pos}
-                  className={positionFilter === pos ? styles.active : ""}
                   onClick={() =>
                     setPositionFilter(
                       pos as
@@ -91,10 +95,12 @@ export const Players: React.FC = () => {
                   }
                 >
                   {pos}
-                </button>
+                </Button>
               ),
             )}
-            <button onClick={() => setPositionFilter("")}>Quitar filtro</button>
+            <Button variant="blue" onClick={() => setPositionFilter("")}>
+              Quitar filtro
+            </Button>
           </div>
         )}
       </div>
