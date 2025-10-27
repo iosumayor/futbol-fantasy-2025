@@ -3,9 +3,11 @@ import { Title } from "@ui/components/Common/Title/Title";
 import { Button } from "@ui/components/Common/Button/Button";
 import { Field } from "@ui/components/Common/Field/Field";
 import { useLogin } from "./useLogin";
+import { useState } from "react";
 
 export const Login: React.FC = () => {
   const { register, handleSubmit, errors, isSubmitting, onSubmit } = useLogin();
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className={styles.loginContainer}>
@@ -25,9 +27,11 @@ export const Login: React.FC = () => {
         />
         <Field
           label="Contraseña"
-          type="password"
+          type={showPassword ? "text" : "password"}
           error={errors.contraseña?.message}
           {...register("contraseña")}
+          isPasswordField
+          onTogglePassword={() => setShowPassword(!showPassword)}
         />
         <Button variant="blue" type="submit" disabled={isSubmitting}>
           Iniciar sesión
