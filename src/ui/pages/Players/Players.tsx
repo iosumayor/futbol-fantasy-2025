@@ -3,6 +3,8 @@ import styles from "./Players.module.scss";
 import { usePlayers } from "./usePlayers";
 import { Title } from "@ui/components/Common/Title/Title";
 import { Button } from "@ui/components/Common/Button/Button";
+///TODO: se podria crear algun componennte para la tabla
+///Pensar si valdria la pena
 
 export const Players: React.FC = () => {
   const {
