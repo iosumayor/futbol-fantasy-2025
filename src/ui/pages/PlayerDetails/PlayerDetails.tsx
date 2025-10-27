@@ -14,7 +14,7 @@ export const PlayerDetails: React.FC = () => {
   if (isError) return <div>Error al cargar detalles del jugador</div>;
   return (
     <>
-      <div className={styles.buttonRight}>
+      <div className={styles.buttonLeft}>
         <Button
           variant="green"
           type="button"
