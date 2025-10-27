@@ -24,9 +24,6 @@ export const Home: React.FC = () => {
             <Button variant="red" onClick={() => logout()}>
               Cerrar sesión
             </Button>
-            <Button variant="green" onClick={() => navigate("/mi-liga")}>
-              Acceder a mi liga
-            </Button>
           </>
         )}
       </div>

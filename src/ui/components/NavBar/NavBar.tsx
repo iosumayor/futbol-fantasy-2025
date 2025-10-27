@@ -21,11 +21,21 @@ export const NavBar: React.FC = () => {
           </Button>
         </li>
         {isAuthenticated && (
-          <li>
-            <Button variant="navBar" onClick={() => navigate("/crear-tu-liga")}>
-              Crear Tu Liga
-            </Button>
-          </li>
+          <>
+            <li>
+              <Button
+                variant="navBar"
+                onClick={() => navigate("/crear-tu-liga")}
+              >
+                Crear Tu Liga
+              </Button>
+            </li>
+            <li>
+              <Button variant="navBar" onClick={() => navigate("/mi-liga")}>
+                Mi Ligas
+              </Button>
+            </li>
+          </>
         )}
       </ul>
     </nav>
