@@ -13,10 +13,15 @@ interface FieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
   ({ label, error, isPasswordField, onTogglePassword, ...props }, ref) => (
     <div className={styles.field}>
-      <label className={styles.label} htmlFor={props.name}>
+      <label className={styles.label} htmlFor={props.id ?? props.name}>
         {label}
       </label>
-      <input className={styles.input} id={props.name} ref={ref} {...props} />
+      <input
+        className={styles.input}
+        id={props.id ?? props.name}
+        ref={ref}
+        {...props}
+      />
       {isPasswordField && onTogglePassword && (
         <ShowPasswordButton
           visible={props.type === "text"}
