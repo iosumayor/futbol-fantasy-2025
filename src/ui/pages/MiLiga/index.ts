@@ -1,0 +1,1 @@
+export { MiLiga } from "./MiLiga";
