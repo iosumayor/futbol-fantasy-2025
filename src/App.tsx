@@ -8,6 +8,7 @@ import { FormularioEntrada } from "@ui/pages/FormularioEntrada";
 import { Login } from "@ui/pages/Login/Login";
 import { CrearTuLiga } from "@ui/pages/CrearTuLiga/CrearTuLiga";
 import { PrivateRoute } from "@core/auth/PrivateRoute";
+import { MiLiga } from "@ui/pages/MiLiga/MiLiga";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,14 @@ function App() {
             element={
               <PrivateRoute>
                 <CrearTuLiga />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mi-liga"
+            element={
+              <PrivateRoute>
+                <MiLiga />
               </PrivateRoute>
             }
           />
