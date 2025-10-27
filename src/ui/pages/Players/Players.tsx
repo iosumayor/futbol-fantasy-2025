@@ -1,47 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import styles from "./Players.module.scss";
-import { usePlayers } from "../../../core/services/playersService";
-import { Player } from "@core/domain/Players";
+import { usePlayers } from "./usePlayers";
 import { Title } from "@ui/components/Common/Title/Title";
 import { Button } from "@ui/components/Common/Button/Button";
 
 export const Players: React.FC = () => {
-  const { data: players, isLoading, isError } = usePlayers();
-  const navigate = useNavigate();
-  const [nameFilter, setNameFilter] = useState("");
-  const [showTeamFilter, setShowTeamFilter] = useState(false);
-  const [teamFilter, setTeamFilter] = useState("");
-  const [showPositionFilter, setShowPositionFilter] = useState(false);
-  const [positionFilter, setPositionFilter] = useState<
-    "Portero" | "Defensa" | "Centrocampista" | "Delantero" | ""
-  >("");
-  const [priceOrder, setPriceOrder] = useState<"asc" | "desc">("asc");
+  const {
+    sortedByPricePlayers,
+    priceOrder,
+    setPriceOrder,
+    navigate,
+    nameFilter,
+    setNameFilter,
+    showTeamFilter,
+    setShowTeamFilter,
+    teamFilter,
+    setTeamFilter,
+    showPositionFilter,
+    setShowPositionFilter,
+    positionFilter,
+    setPositionFilter,
+    isLoading,
+    isError,
+  } = usePlayers();
 
   if (isLoading) return <div>Cargando jugadores...</div>;
   if (isError) return <div>Error al cargar jugadores</div>;
-
-  const filters = [
-    nameFilter
-      ? (player: Player) =>
-          player.name.toLowerCase().includes(nameFilter.toLowerCase())
-      : undefined,
-    showTeamFilter && teamFilter
-      ? (player: Player) =>
-          player.team.toLowerCase().includes(teamFilter.toLowerCase())
-      : undefined,
-    showPositionFilter && positionFilter
-      ? (player: Player) => player.position === positionFilter
-      : undefined,
-  ].filter(Boolean);
-
-  const filteredPlayers = (players ?? []).filter((player) =>
-    filters.every((fn) => (fn as (player: Player) => boolean)(player)),
-  );
-
-  const sortedByPricePlayers = [...filteredPlayers].sort((a, b) =>
-    priceOrder === "asc" ? a.price - b.price : b.price - a.price,
-  );
 
   return (
     <div className={styles.container}>
