@@ -26,7 +26,7 @@ function setupPlayersTest(
   isLoading = false,
   isError = false,
 ) {
-  vi.spyOn(playersService, "usePlayers").mockReturnValue({
+  vi.spyOn(playersService, "useAllPlayers").mockReturnValue({
     data,
     isLoading,
     isError,
