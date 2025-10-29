@@ -1,0 +1,1 @@
+export { PaginaGeneralMiLiga } from "./PaginaGeneralMiLiga";
