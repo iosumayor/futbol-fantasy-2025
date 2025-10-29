@@ -5,11 +5,11 @@ import { Title } from "@ui/components/Common/Title/Title";
 import { useNavigate } from "react-router-dom";
 
 export const MiLiga: React.FC = () => {
-  const { data: ligas, isLoading, error } = useAllLigas();
+  const { data: ligas, isLoading, isError } = useAllLigas();
   const navigate = useNavigate();
 
   if (isLoading) return <div>Cargando ligas...</div>;
-  if (error) return <div>Error al cargar ligas</div>;
+  if (isError) return <div>Error al cargar ligas</div>;
 
   return (
     <div className={styles.container}>
