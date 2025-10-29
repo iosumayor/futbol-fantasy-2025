@@ -21,7 +21,7 @@ export const MiLiga: React.FC = () => {
           <li
             key={liga.id}
             className={styles.item}
-            onClick={() => navigate(`/liga/${liga.id}`)}
+            onClick={() => navigate(`/mi-liga/${liga.id}`)}
             tabIndex={0}
             role="button"
           >

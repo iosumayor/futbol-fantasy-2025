@@ -72,6 +72,6 @@ describe("en la página de MiLiga", () => {
     const ligaElement = await screen.findByText("Liga de Prueba");
     ligaElement.click();
 
-    expect(mockNavigate).toHaveBeenCalledWith("/liga/1");
+    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1");
   });
 });
