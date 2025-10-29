@@ -9,6 +9,7 @@ import { Login } from "@ui/pages/Login/Login";
 import { CrearTuLiga } from "@ui/pages/CrearTuLiga/CrearTuLiga";
 import { PrivateRoute } from "@core/auth/PrivateRoute";
 import { MiLiga } from "@ui/pages/MiLiga/MiLiga";
+import { PaginaGeneralMiLiga } from "./ui/pages/MiLiga/Components/PaginaGeneralMiLiga";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/mi-liga/:id" element={<PaginaGeneralMiLiga />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
