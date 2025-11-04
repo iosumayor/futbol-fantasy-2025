@@ -1,13 +1,15 @@
 import { useLigaById } from "@core/services/ligasService";
 import { useAllPlayers } from "@core/services/playersService";
 import { Title } from "@ui/components/Common/Title/Title";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./MercadoJugadores.module.scss";
+import { Button } from "@ui/components/Common/Button/Button";
 
 export const MercadoJugadores: React.FC = () => {
   const { id } = useParams();
   const { data: liga, isLoading, isError } = useLigaById(Number(id));
+  const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
   const {
     data: players,
     isLoading: playersLoading,
@@ -37,10 +39,47 @@ export const MercadoJugadores: React.FC = () => {
             <span className={styles.nombre}>{player.name}</span>
             <span className={styles.posicion}>Posición: {player.position}</span>
             <span className={styles.precio}>Precio: {player.price}€</span>
+            <Button
+              variant="blue"
+              onClick={() => setSelectedPlayer(player)}
+              style={{ marginLeft: "auto" }}
+            >
+              Fichar
+            </Button>
           </li>
         ))}
       </ul>
-      {/* Aquí iría el resto del componente del mercado de jugadores */}
+      {selectedPlayer && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSelectedPlayer(null)}
+        >
+          <div
+            className={styles.modalContent}
+            ///SI clickas dentro del modal no se cierra
+            ///Si clickas fuera si
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>¿Quieres fichar a {selectedPlayer.name}?</h2>
+            <p>Equipo: {selectedPlayer.team}</p>
+            <p>Precio: {selectedPlayer.price}€</p>
+            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+              <Button
+                variant="green"
+                onClick={() => {
+                  // lógica para fichar al jugador
+                  setSelectedPlayer(null);
+                }}
+              >
+                Fichar
+              </Button>
+              <Button variant="red" onClick={() => setSelectedPlayer(null)}>
+                Volver atrás
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
