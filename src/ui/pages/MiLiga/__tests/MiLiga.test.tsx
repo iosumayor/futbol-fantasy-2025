@@ -40,7 +40,7 @@ describe("en la página de MiLiga", () => {
     expect(screen.getByText("Liga de Prueba 2")).toBeInTheDocument();
   });
 
-  it("deberia mostrar la descripcion si la liga tiene descripcion", async () => {
+  it("debería mostrar la descripcion si la liga tiene descripcion", async () => {
     const ligaConDescripcion = aLiga({
       name: "Liga con Descripcion",
       description: "Esta es una liga de prueba con descripcion",
@@ -48,7 +48,7 @@ describe("en la página de MiLiga", () => {
     setupMiLigaTest([ligaConDescripcion]);
 
     expect(
-      await screen.getByText(
+      await screen.findByText(
         "Descripcion: Esta es una liga de prueba con descripcion",
       ),
     ).toBeInTheDocument();
