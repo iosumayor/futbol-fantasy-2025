@@ -49,7 +49,7 @@ describe("en la página de MiLiga", () => {
 
     expect(
       await screen.findByText(
-        "Descripcion: Esta es una liga de prueba con descripcion",
+        "Descripción: Esta es una liga de prueba con descripcion",
       ),
     ).toBeInTheDocument();
   });
