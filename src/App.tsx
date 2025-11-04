@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./ui/pages/Home/Home";
-import { Players } from "./ui/pages/Players";
+import { Home } from "@ui/pages/Home/Home";
+import { Players } from "@ui/pages/Players";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PlayerDetails } from "@ui/pages/PlayerDetails/PlayerDetails";
 import { NavBar } from "@ui/components/NavBar";
@@ -8,6 +8,8 @@ import { FormularioEntrada } from "@ui/pages/FormularioEntrada";
 import { Login } from "@ui/pages/Login/Login";
 import { CrearTuLiga } from "@ui/pages/CrearTuLiga/CrearTuLiga";
 import { PrivateRoute } from "@core/auth/PrivateRoute";
+import { MiLiga } from "@ui/pages/MiLiga/MiLiga";
+import { PaginaGeneralMiLiga } from "@ui/pages/MiLiga/Components/PaginaGeneralMiLiga";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,22 @@ function App() {
             element={
               <PrivateRoute>
                 <CrearTuLiga />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mi-liga"
+            element={
+              <PrivateRoute>
+                <MiLiga />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mi-liga/:id"
+            element={
+              <PrivateRoute>
+                <PaginaGeneralMiLiga />
               </PrivateRoute>
             }
           />

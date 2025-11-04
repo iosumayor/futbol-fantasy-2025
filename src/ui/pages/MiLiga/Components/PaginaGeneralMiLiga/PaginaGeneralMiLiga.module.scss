@@ -1,0 +1,16 @@
+.ligaNav {
+  margin-top: 1.5rem; // separa visualmente las barras
+  background: #232526;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  display: flex;
+  justify-content: center;
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}

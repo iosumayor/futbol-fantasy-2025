@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@core/auth/useAuth";
 import { Button } from "@ui/components/Common/Button/Button";
+import { AuthNavBar } from "./components/AuthNavBar";
 import styles from "./NavBar.module.scss";
 
 export const NavBar: React.FC = () => {
@@ -20,13 +21,7 @@ export const NavBar: React.FC = () => {
             Jugadores
           </Button>
         </li>
-        {isAuthenticated && (
-          <li>
-            <Button variant="navBar" onClick={() => navigate("/crear-tu-liga")}>
-              Crear Tu Liga
-            </Button>
-          </li>
-        )}
+        {isAuthenticated && <AuthNavBar />}
       </ul>
     </nav>
   );

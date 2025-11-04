@@ -3,6 +3,19 @@
   background: #232526;
   padding: 0.5rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+
+  /* Estilos para el scrollbar en navegadores Webkit (Chrome, Edge, Safari) */
+  &::-webkit-scrollbar {
+    height: 6px; // reduce la altura de la barra
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #00ffb3;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #232526;
+  }
 }
 
 .list {
@@ -11,5 +24,20 @@
   gap: 2rem;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
+  flex-wrap: nowrap; // fuerza que estén en una sola línea
+}
+
+.list > li {
+  flex-shrink: 0; // evita que los elementos se reduzcan demasiado
+}
+
+@media (max-width: 600px) {
+  .list {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  .nav {
+    padding: 0.5rem 0.2rem;
+  }
 }

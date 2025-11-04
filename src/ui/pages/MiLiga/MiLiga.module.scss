@@ -1,0 +1,39 @@
+.container {
+  padding: 2rem;
+  background: #181a1b;
+  min-height: 100vh;
+}
+
+.ligasLista {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.item {
+  background: #232526;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #222;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+
+  &:hover,
+  &:focus {
+    background: #181a1b;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 255, 179, 0.12);
+    outline: none;
+  }
+
+  p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.95rem;
+    color: #a0aec0;
+  }
+}
