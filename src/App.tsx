@@ -45,7 +45,6 @@ function App() {
             path="/mi-liga/:id"
             element={
               <PrivateRoute>
-                {" "}
                 <PaginaGeneralMiLiga />
               </PrivateRoute>
             }
@@ -54,7 +53,6 @@ function App() {
             path="/mi-liga/:id/mercado"
             element={
               <PrivateRoute>
-                {" "}
                 <MercadoJugadores />
               </PrivateRoute>
             }
