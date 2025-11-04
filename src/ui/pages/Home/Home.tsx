@@ -20,11 +20,9 @@ export const Home: React.FC = () => {
           Iniciar sesión
         </Button>
         {isAuthenticated && (
-          <>
-            <Button variant="red" onClick={() => logout()}>
-              Cerrar sesión
-            </Button>
-          </>
+          <Button variant="red" onClick={() => logout()}>
+            Cerrar sesión
+          </Button>
         )}
       </div>
     </div>

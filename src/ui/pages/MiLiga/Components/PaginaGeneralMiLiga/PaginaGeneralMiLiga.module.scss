@@ -13,16 +13,4 @@
     margin: 0;
     padding: 0;
   }
-  li {
-    cursor: pointer;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: background 0.2s;
-    &:hover,
-    &:focus {
-      background: #00ffb3;
-      color: #181a1b;
-    }
-  }
 }
