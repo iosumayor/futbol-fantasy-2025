@@ -26,7 +26,7 @@ export const MiLiga: React.FC = () => {
             role="button"
           >
             {liga.name}
-            {liga.description && <p>Descripcion: {liga.description}</p>}
+            {liga.description && <p>Descripción: {liga.description}</p>}
           </li>
         ))}
       </ul>
