@@ -36,8 +36,8 @@ describe("en la página de MiLiga", () => {
   it("debería mostrar la liga del usuario con sus equipos", async () => {
     setupMiLigaTest();
 
-    expect(await screen.getByText("Liga de Prueba")).toBeInTheDocument();
-    expect(await screen.getByText("Liga de Prueba 2")).toBeInTheDocument();
+    expect(await screen.findByText("Liga de Prueba")).toBeInTheDocument();
+    expect(screen.getByText("Liga de Prueba 2")).toBeInTheDocument();
   });
 
   it("deberia mostrar la descripcion si la liga tiene descripcion", async () => {
