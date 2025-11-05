@@ -18,3 +18,9 @@
   min-width: 300px;
   color: #fff;
 }
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}

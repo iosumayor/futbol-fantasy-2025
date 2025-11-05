@@ -51,24 +51,14 @@ export const MercadoJugadores: React.FC = () => {
         ))}
       </ul>
       {selectedPlayer && (
-        <Modal onClose={() => setSelectedPlayer(null)}>
+        <Modal
+          onClose={() => setSelectedPlayer(null)}
+          confirmText="Fichar"
+          backText="Volver atrás"
+        >
           <h2>¿Quieres fichar a {selectedPlayer.name}?</h2>
           <p>Equipo: {selectedPlayer.team}</p>
           <p>Precio: {selectedPlayer.price}€</p>
-          <div className={styles.modalContent}>
-            <Button
-              variant="green"
-              onClick={() => {
-                // lógica para fichar al jugador
-                setSelectedPlayer(null);
-              }}
-            >
-              Fichar
-            </Button>
-            <Button variant="red" onClick={() => setSelectedPlayer(null)}>
-              Volver atrás
-            </Button>
-          </div>
         </Modal>
       )}
     </div>
