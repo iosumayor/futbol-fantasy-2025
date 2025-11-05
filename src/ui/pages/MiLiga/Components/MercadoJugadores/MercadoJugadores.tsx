@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./MercadoJugadores.module.scss";
 import { Button } from "@ui/components/Common/Button/Button";
+import { Modal } from "@ui/components/Common/Modal/Modal";
 
 export const MercadoJugadores: React.FC = () => {
   const { id } = useParams();
@@ -50,35 +51,25 @@ export const MercadoJugadores: React.FC = () => {
         ))}
       </ul>
       {selectedPlayer && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedPlayer(null)}
-        >
-          <div
-            className={styles.modalContent}
-            ///SI clickas dentro del modal no se cierra
-            ///Si clickas fuera si
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>¿Quieres fichar a {selectedPlayer.name}?</h2>
-            <p>Equipo: {selectedPlayer.team}</p>
-            <p>Precio: {selectedPlayer.price}€</p>
-            <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-              <Button
-                variant="green"
-                onClick={() => {
-                  // lógica para fichar al jugador
-                  setSelectedPlayer(null);
-                }}
-              >
-                Fichar
-              </Button>
-              <Button variant="red" onClick={() => setSelectedPlayer(null)}>
-                Volver atrás
-              </Button>
-            </div>
+        <Modal onClose={() => setSelectedPlayer(null)}>
+          <h2>¿Quieres fichar a {selectedPlayer.name}?</h2>
+          <p>Equipo: {selectedPlayer.team}</p>
+          <p>Precio: {selectedPlayer.price}€</p>
+          <div className={styles.modalContent}>
+            <Button
+              variant="green"
+              onClick={() => {
+                // lógica para fichar al jugador
+                setSelectedPlayer(null);
+              }}
+            >
+              Fichar
+            </Button>
+            <Button variant="red" onClick={() => setSelectedPlayer(null)}>
+              Volver atrás
+            </Button>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );
