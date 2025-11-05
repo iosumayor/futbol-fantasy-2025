@@ -22,13 +22,19 @@ export const MercadoJugadores: React.FC = () => {
   if (isError || playersError)
     return <div>Error al cargar el mercado de jugadores</div>;
 
+  ///TODO: Faltaría añadir la lógica de que se muestre los jugadores 24 horas
+  ///Para luego cambiar a un nuevo mercado
+  const randomizedPlayers = players
+    ?.sort(() => Math.random() - 0.5)
+    .slice(0, 8);
+
   return (
     <div>
       <Title level={1} align="center">
         Mercado de Jugadores de {liga?.name}
       </Title>
       <ul className={styles.listado}>
-        {players?.map((player) => (
+        {randomizedPlayers?.map((player) => (
           <li key={player.id} className={styles.item}>
             {player.image && (
               <img
