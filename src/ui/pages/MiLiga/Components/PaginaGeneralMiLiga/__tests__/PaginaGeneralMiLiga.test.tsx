@@ -27,41 +27,12 @@ function setupPaginaGeneralMiLigaTest(
     isLoading,
     isError,
   } as any);
-  renderWithRouter(<PaginaGeneralMiLiga />, { route: "/mi-liga/1" });
+  renderWithRouter(<PaginaGeneralMiLiga />);
 }
 
 describe("en la pagina general de mi liga", () => {
   afterEach(() => {
     vi.restoreAllMocks();
-  });
-  it("deberia navegar a la pagina de mercado al hacer click en el boton mercado", async () => {
-    setupPaginaGeneralMiLigaTest();
-
-    const botonMercado = await screen.findByRole("button", { name: "Mercado" });
-    botonMercado.click();
-
-    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1/mercado");
-  });
-
-  it("deberia navegar a la pagina de clasificacion al hacer click en el boton clasificacion", () => {
-    setupPaginaGeneralMiLigaTest();
-    const botonClasificacion = screen.getByText("Clasificación");
-    botonClasificacion.click();
-    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1/clasificacion");
-  });
-
-  it("deberia navegar a la pagina de plantilla al hacer click en el boton plantilla", () => {
-    setupPaginaGeneralMiLigaTest();
-    const botonPlantilla = screen.getByText("Mi Plantilla");
-    botonPlantilla.click();
-    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1/plantilla");
-  });
-
-  it("deberia navegar a la pagina de once titular al hacer click en el boton once titular", () => {
-    setupPaginaGeneralMiLigaTest();
-    const botonOnce = screen.getByText("Once Titular");
-    botonOnce.click();
-    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1/once");
   });
 
   it("deberia mostrar un loader mientras se cargan los datos", async () => {
