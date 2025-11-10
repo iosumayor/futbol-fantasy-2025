@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Modal.module.scss";
 import { Button } from "../Button/Button";
 
+// TODO: Faltaría hacer bien el manejo del onConfirm siendo opcional
 interface ModalProps {
   onClose: () => void;
+  onConfirm?: () => void;
   children: React.ReactNode;
   confirmText: string;
   backText: string;
@@ -11,6 +13,7 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({
   onClose,
+  onConfirm,
   children,
   confirmText,
   backText,
@@ -23,7 +26,7 @@ export const Modal: React.FC<ModalProps> = ({
           <Button variant="red" onClick={onClose}>
             {backText}
           </Button>
-          <Button variant="green" onClick={() => {}}>
+          <Button variant="green" onClick={onConfirm}>
             {confirmText}
           </Button>
         </div>
