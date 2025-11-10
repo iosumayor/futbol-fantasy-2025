@@ -18,12 +18,7 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent} onClick={onClose}>
-        <div
-          className={styles.modalContent}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-        </div>
+        <div onClick={(e) => e.stopPropagation()}>{children}</div>
         <div className={styles.modalActions}>
           <Button variant="red" onClick={onClose}>
             {backText}
