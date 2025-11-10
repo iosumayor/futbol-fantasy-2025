@@ -6,11 +6,12 @@ import { useParams } from "react-router-dom";
 import styles from "./MercadoJugadores.module.scss";
 import { Button } from "@ui/components/Common/Button/Button";
 import { Modal } from "@ui/components/Common/Modal/Modal";
+import { Player } from "@core/domain/Players";
 
 export const MercadoJugadores: React.FC = () => {
   const { id } = useParams();
   const { data: liga, isLoading, isError } = useLigaById(Number(id));
-  const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
+  const [selectedPlayer, setSelectedPlayer] = useState<Player | null>(null);
   const {
     data: players,
     isLoading: playersLoading,
