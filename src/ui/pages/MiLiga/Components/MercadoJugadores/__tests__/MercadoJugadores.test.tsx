@@ -8,7 +8,12 @@ import * as ligaService from "@core/services/ligasService";
 import { MercadoJugadores } from "../MercadoJugadores";
 
 const mockPlayers = [
-  aPlayer({ team: "Real Madrid", name: "Modric", position: "Delantero" }),
+  aPlayer({
+    team: "Real Madrid",
+    name: "Modric",
+    position: "Delantero",
+    id: 1,
+  }),
   aPlayer({
     team: "Barcelona",
     name: "Pedri",
@@ -75,10 +80,10 @@ describe("en el Mercado de Jugadores", () => {
   it("debería abrir el modal al hacer clic en 'Fichar'", async () => {
     setupServicesMocks();
 
-    const ficharButton = screen.getAllByText("Fichar")[0];
-    ficharButton.click();
+    const modricItem = screen.getByText("Modric").closest("li");
+    const ficharButton = modricItem?.querySelector("button");
+    ficharButton?.click();
 
-    // Ajusta el texto según tu modal real
     expect(
       await screen.findByText("¿Quieres fichar a Modric?"),
     ).toBeInTheDocument();
@@ -87,8 +92,9 @@ describe("en el Mercado de Jugadores", () => {
   it("debería cerrar el modal al hacer clic en 'Volver atrás'", async () => {
     setupServicesMocks();
 
-    const ficharButton = screen.getAllByText("Fichar")[0];
-    ficharButton.click();
+    const modricItem = screen.getByText("Modric").closest("li");
+    const ficharButton = modricItem?.querySelector("button");
+    ficharButton?.click();
     const volverAtrasButton = await screen.findByText("Volver atrás");
     volverAtrasButton.click();
 
