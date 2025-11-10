@@ -99,7 +99,7 @@ describe("en el Mercado de Jugadores", () => {
     volverAtrasButton.click();
 
     expect(
-      await screen.queryByText("¿Quieres fichar a Modric?"),
+      await screen.findByText("¿Quieres fichar a Modric?"),
     ).not.toBeInTheDocument();
   });
 });
