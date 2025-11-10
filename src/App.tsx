@@ -10,6 +10,8 @@ import { CrearTuLiga } from "@ui/pages/CrearTuLiga/CrearTuLiga";
 import { PrivateRoute } from "@core/auth/PrivateRoute";
 import { MiLiga } from "@ui/pages/MiLiga/MiLiga";
 import { PaginaGeneralMiLiga } from "@ui/pages/MiLiga/Components/PaginaGeneralMiLiga";
+import { MercadoJugadores } from "@ui/pages/MiLiga/Components/MercadoJugadores";
+import { MiLigaLayout } from "@ui/pages/MiLiga/Components/PaginaGeneralMiLiga/MiLigaLayout";
 
 const queryClient = new QueryClient();
 
@@ -44,10 +46,14 @@ function App() {
             path="/mi-liga/:id"
             element={
               <PrivateRoute>
-                <PaginaGeneralMiLiga />
+                <MiLigaLayout />
               </PrivateRoute>
             }
-          />
+          >
+            <Route index element={<PaginaGeneralMiLiga />} />
+            <Route path="mercado" element={<MercadoJugadores />} />
+            {/* ...otras rutas hijas */}
+          </Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
