@@ -14,9 +14,10 @@ export const Clasificacion: React.FC = () => {
     isError: usuariosError,
   } = useUsuariosByLigaId(Number(id));
 
-  if (isLoading || usuariosLoading) return <div>Cargando clasificación...</div>;
+  if (isLoading || usuariosLoading)
+    return <div>Cargando clasificacion de la liga...</div>;
   if (isError || usuariosError)
-    return <div>Error al cargar la clasificación</div>;
+    return <div>Error al cargar la clasificacion de la liga</div>;
 
   const usuariosOrdenadosPorPuntos = usuarios?.sort(
     (a, b) => b.points - a.points,
@@ -24,10 +25,13 @@ export const Clasificacion: React.FC = () => {
 
   return (
     <div>
-      <Title level={1}>Clasificacion de la liga de {liga?.name}</Title>
+      <Title align="center" level={1}>
+        Clasificacion de la liga de {liga?.name}
+      </Title>
       <ul className={styles.clasificacionList}>
-        {usuariosOrdenadosPorPuntos?.map((usuarios) => (
+        {usuariosOrdenadosPorPuntos?.map((usuarios, index) => (
           <li key={usuarios.id} className={styles.clasificacionItem}>
+            <span className={styles.position}>{index + 1}.</span>
             <span className={styles.username}>{usuarios.username}</span>
             <span className={styles.points}>{usuarios.points} puntos</span>
           </li>
