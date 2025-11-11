@@ -73,8 +73,6 @@ describe("en el componente Clasificacion", () => {
   it("debería mostrar a los usuarios ordenados por puntos", () => {
     setupServicesMocks();
 
-    screen.debug();
-
     const usuario1 = screen.getByText("Usuario1");
     const usuario2 = screen.getByText("Usuario2");
     const lista = usuario1.closest("ul") || usuario2.closest("ul");
