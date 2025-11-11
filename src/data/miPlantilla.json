@@ -1,0 +1,98 @@
+[
+  {
+    "userId": 1,
+    "ligaId": 1,
+    "jugadores": [
+      {
+        "id": 2,
+        "name": "Luka Modric",
+        "position": "Centrocampista",
+        "team": "Real Madrid",
+        "points": 100,
+        "price": 12
+      },
+      {
+        "id": 3,
+        "name": "Marc-André ter Stegen",
+        "position": "Portero",
+        "team": "Barcelona",
+        "points": 90,
+        "price": 9,
+        "image": "https://assets.laliga.com/squad/2025/t178/p77318/128x128/p77318_t178_2025_1_002_000.jpg",
+        "imageDetail": "https://r2.thesportsdb.com/images/media/player/render/agtip81658424227.png/small"
+      },
+      {
+        "id": 4,
+        "name": "Jude Bellingham",
+        "position": "Centrocampista",
+        "team": "Real Madrid",
+        "points": 110,
+        "price": 13
+      },
+      {
+        "id": 10,
+        "name": "Iñaki Williams",
+        "position": "Delantero",
+        "team": "Athletic Club",
+        "points": 85,
+        "price": 9
+      },
+      {
+        "id": 6,
+        "name": "Jan Oblak",
+        "position": "Portero",
+        "team": "Atlético de Madrid",
+        "points": 80,
+        "price": 9
+      },
+      {
+        "id": 15,
+        "name": "Dani Parejo",
+        "position": "Centrocampista",
+        "team": "Villarreal",
+        "points": 75,
+        "price": 8
+      },
+      {
+        "id": 22,
+        "name": "Robert Lewandowski",
+        "position": "Delantero",
+        "team": "Barcelona",
+        "points": 95,
+        "price": 12
+      },
+      {
+        "id": 27,
+        "name": "Yeray Álvarez",
+        "position": "Defensa",
+        "team": "Athletic Club",
+        "points": 70,
+        "price": 7
+      },
+      {
+        "id": 29,
+        "name": "Pau Torres",
+        "position": "Defensa",
+        "team": "Villarreal",
+        "points": 65,
+        "price": 7
+      },
+      {
+        "id": 30,
+        "name": "Sergio Herrera",
+        "position": "Portero",
+        "team": "Osasuna",
+        "points": 60,
+        "price": 7
+      },
+      {
+        "id": 8,
+        "name": "Borja Iglesias",
+        "position": "Delantero",
+        "team": "Real Betis",
+        "points": 68,
+        "price": 8
+      }
+    ]
+  }
+]
