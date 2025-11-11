@@ -1,0 +1,1 @@
+export { Clasificacion } from "./Clasificacion";
