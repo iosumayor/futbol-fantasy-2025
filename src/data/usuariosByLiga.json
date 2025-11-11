@@ -1,0 +1,5 @@
+[
+  { "id": 1, "username": "Usuario1", "points": 50, "ligaId": 1 },
+  { "id": 2, "username": "Usuario2", "points": 70, "ligaId": 1 },
+  { "id": 3, "username": "Usuario3", "points": 30, "ligaId": 2 }
+]
