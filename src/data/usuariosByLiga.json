@@ -1,5 +1,17 @@
 [
-  { "id": 1, "username": "Usuario1", "points": 50, "ligaId": 1 },
-  { "id": 2, "username": "Usuario2", "points": 70, "ligaId": 1 },
-  { "id": 3, "username": "Usuario3", "points": 30, "ligaId": 2 }
+  { "id": 1, "username": "Abde Gitano", "points": 50, "ligaId": 1 },
+  { "id": 2, "username": "Okalimotxo", "points": 70, "ligaId": 1 },
+  { "id": 3, "username": "La Brujas de Martin", "points": 40, "ligaId": 1 },
+  { "id": 4, "username": "Vinicius Balon de playa", "points": 65, "ligaId": 1 },
+
+  { "id": 5, "username": "Dame un segarro", "points": 30, "ligaId": 2 },
+  { "id": 6, "username": "Un txupito más", "points": 80, "ligaId": 2 },
+  { "id": 7, "username": "la nazriz de Lucas", "points": 55, "ligaId": 2 },
+  { "id": 8, "username": "Tito Floren", "points": 45, "ligaId": 2 },
+
+  { "id": 9, "username": "El Mago de Arre", "points": 60, "ligaId": 3 },
+  { "id": 10, "username": "El filosofo Pep", "points": 35, "ligaId": 3 },
+  { "id": 11, "username": "Tiki Taka", "points": 75, "ligaId": 3 },
+  { "id": 12, "username": "El Rayo Mcqueen", "points": 25, "ligaId": 3 },
+  { "id": 13, "username": "Nuevo Usuario", "points": 30, "ligaId": 2 }
 ]
