@@ -4,14 +4,6 @@
     "ligaId": 1,
     "jugadores": [
       {
-        "id": 2,
-        "name": "Luka Modric",
-        "position": "Centrocampista",
-        "team": "Real Madrid",
-        "points": 100,
-        "price": 12
-      },
-      {
         "id": 3,
         "name": "Marc-André ter Stegen",
         "position": "Portero",
@@ -22,22 +14,6 @@
         "imageDetail": "https://r2.thesportsdb.com/images/media/player/render/agtip81658424227.png/small"
       },
       {
-        "id": 4,
-        "name": "Jude Bellingham",
-        "position": "Centrocampista",
-        "team": "Real Madrid",
-        "points": 110,
-        "price": 13
-      },
-      {
-        "id": 10,
-        "name": "Iñaki Williams",
-        "position": "Delantero",
-        "team": "Athletic Club",
-        "points": 85,
-        "price": 9
-      },
-      {
         "id": 6,
         "name": "Jan Oblak",
         "position": "Portero",
@@ -46,20 +22,12 @@
         "price": 9
       },
       {
-        "id": 15,
-        "name": "Dani Parejo",
-        "position": "Centrocampista",
-        "team": "Villarreal",
-        "points": 75,
-        "price": 8
-      },
-      {
-        "id": 22,
-        "name": "Robert Lewandowski",
-        "position": "Delantero",
-        "team": "Barcelona",
-        "points": 95,
-        "price": 12
+        "id": 26,
+        "name": "Aitor Ruibal",
+        "position": "Defensa",
+        "team": "Real Betis",
+        "points": 70,
+        "price": 7
       },
       {
         "id": 27,
@@ -78,20 +46,84 @@
         "price": 7
       },
       {
-        "id": 30,
-        "name": "Sergio Herrera",
-        "position": "Portero",
-        "team": "Osasuna",
+        "id": 31,
+        "name": "José Gayà",
+        "position": "Defensa",
+        "team": "Valencia",
         "points": 60,
         "price": 7
       },
       {
-        "id": 8,
-        "name": "Borja Iglesias",
-        "position": "Delantero",
+        "id": 32,
+        "name": "Arnau Martínez",
+        "position": "Defensa",
+        "team": "Girona",
+        "points": 60,
+        "price": 7
+      },
+      {
+        "id": 2,
+        "name": "Luka Modric",
+        "position": "Centrocampista",
+        "team": "Real Madrid",
+        "points": 100,
+        "price": 12
+      },
+      {
+        "id": 4,
+        "name": "Jude Bellingham",
+        "position": "Centrocampista",
+        "team": "Real Madrid",
+        "points": 110,
+        "price": 13
+      },
+      {
+        "id": 7,
+        "name": "Isco",
+        "position": "Centrocampista",
         "team": "Real Betis",
-        "points": 68,
+        "points": 70,
         "price": 8
+      },
+      {
+        "id": 12,
+        "name": "Mikel Merino",
+        "position": "Centrocampista",
+        "team": "Real Sociedad",
+        "points": 75,
+        "price": 8
+      },
+      {
+        "id": 21,
+        "name": "Pedri",
+        "position": "Centrocampista",
+        "team": "Barcelona",
+        "points": 80,
+        "price": 10
+      },
+      {
+        "id": 1,
+        "name": "Lamine Yamal",
+        "position": "Delantero",
+        "team": "Barcelona",
+        "points": 85,
+        "price": 10
+      },
+      {
+        "id": 10,
+        "name": "Iñaki Williams",
+        "position": "Delantero",
+        "team": "Athletic Club",
+        "points": 85,
+        "price": 9
+      },
+      {
+        "id": 22,
+        "name": "Robert Lewandowski",
+        "position": "Delantero",
+        "team": "Barcelona",
+        "points": 95,
+        "price": 12
       }
     ]
   }
