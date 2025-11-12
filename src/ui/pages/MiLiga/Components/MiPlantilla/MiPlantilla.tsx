@@ -44,8 +44,7 @@ export const MiPlantilla: React.FC = () => {
       ) : (
         <>
           <Title level={1} align="center">
-            Mi Plantilla de{" "}
-            {usuarios?.find((u) => u.id === Number(user?.id))?.username}
+            {`Mi Plantilla de ${usuarios?.find((u) => u.id === Number(user?.id))?.username ?? ""}`}
           </Title>
           <table className={styles.statsTable}>
             <thead>

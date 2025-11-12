@@ -1,9 +1,47 @@
 import { renderWithRouter } from "@test-utils/renderWithRouter";
-import { screen } from "@testing-library/react";
+import { screen, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { MiPlantilla } from "../MiPlantilla";
 import * as miPlantillaService from "@core/services/miPlantillaService";
+import * as usuariosService from "@core/services/usuariosByLigaService";
 import { aMiPlantilla } from "@core/domain/___mocks___/aMiPlantilla";
+import { aUsuariosByLiga } from "@core/domain/___mocks___/aUsuariosByLiga";
+
+const mockMiPlantilla = aMiPlantilla({
+  jugadores: [
+    { id: 1, name: "Jugador 1", position: "Portero" },
+    { id: 2, name: "Jugador 2", position: "Defensa" },
+    { id: 3, name: "Jugador 3", position: "Centrocampista" },
+  ],
+});
+
+const mockUsuarios = [
+  aUsuariosByLiga({ id: 1, username: "Usuario1", points: 50, ligaId: 1 }),
+  aUsuariosByLiga({ id: 2, username: "Usuario2", points: 100, ligaId: 1 }),
+  aUsuariosByLiga({ id: 3, username: "Usuario2", points: 80, ligaId: 2 }),
+];
+
+function setupServicesMocks({
+  miPlantilla = mockMiPlantilla,
+  usuarios = mockUsuarios,
+  usuariosLoading = false,
+  usuariosError = false,
+  miPlantillaLoading = false,
+  miPlantillaError = false,
+  ligaId = 1,
+} = {}) {
+  vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
+    data: miPlantilla,
+    isLoading: miPlantillaLoading,
+    isError: miPlantillaError,
+  } as any);
+  vi.spyOn(usuariosService, "useUsuariosByLigaId").mockReturnValue({
+    data: usuarios.filter((u) => u.ligaId === ligaId),
+    isLoading: usuariosLoading,
+    isError: usuariosError,
+  } as any);
+  renderWithRouter(<MiPlantilla />);
+}
 
 describe("en el la pagina de mi plantilla", () => {
   afterEach(() => {
@@ -11,69 +49,47 @@ describe("en el la pagina de mi plantilla", () => {
   });
 
   it("muestra correctamente los jugadores en la plantilla", () => {
-    vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
-      data: aMiPlantilla(),
-      isLoading: false,
-      isError: false,
-    } as any);
-    renderWithRouter(<MiPlantilla />);
+    setupServicesMocks();
 
-    expect(screen.getByText("Mi plantilla")).toBeInTheDocument();
+    expect(screen.getByText("Mi Plantilla de Usuario1")).toBeInTheDocument();
     expect(screen.getByText("Jugador 1")).toBeInTheDocument();
     expect(screen.getByText("Jugador 2")).toBeInTheDocument();
   });
 
   it("muestra el estado de carga, (isLoading)", () => {
-    vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
-      data: null,
-      isLoading: true,
-      isError: false,
-    } as any);
-    renderWithRouter(<MiPlantilla />);
+    setupServicesMocks({ miPlantillaLoading: true });
 
-    expect(screen.getByText("Cargando plantilla...")).toBeInTheDocument();
+    expect(screen.getByText("Cargando mi plantilla...")).toBeInTheDocument();
   });
 
   it("muestra el estado de error, (isError)", () => {
-    vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
-      data: null,
-      isLoading: false,
-      isError: true,
-    } as any);
-    renderWithRouter(<MiPlantilla />);
+    setupServicesMocks({ miPlantillaError: true });
 
     expect(
-      screen.getByText("Error al cargar la plantilla"),
+      screen.getByText("Error al cargar mi plantilla"),
     ).toBeInTheDocument();
   });
 
   it("los jugadores están ordenados por posición correctamente", () => {
-    vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
-      data: aMiPlantilla({
-        jugadores: [
-          { id: 1, name: "Jugador 1", position: "Delantero" },
-          { id: 2, name: "Jugador 2", position: "Portero" },
-          { id: 3, name: "Jugador 3", position: "Defensa" },
-        ],
-      }),
-      isLoading: false,
-      isError: false,
-    } as any);
-    renderWithRouter(<MiPlantilla />);
-    const items = screen.getAllByRole("listitem");
+    setupServicesMocks();
 
-    expect(items[0]).toHaveTextContent("Jugador 2");
-    expect(items[1]).toHaveTextContent("Jugador 3");
-    expect(items[2]).toHaveTextContent("Jugador 1");
+    // Busca todas las filas del tbody
+    const rows = screen.getAllByRole("row").slice(1); // omite la cabecera
+
+    // Comprobamos el orden por posición y nombre
+    // el within nos ayuda a buscar dentro de un elemento específico
+    expect(within(rows[0]).getByText("Portero")).toBeInTheDocument();
+    expect(within(rows[0]).getByText("Jugador 1")).toBeInTheDocument();
+
+    expect(within(rows[1]).getByText("Defensa")).toBeInTheDocument();
+    expect(within(rows[1]).getByText("Jugador 2")).toBeInTheDocument();
+
+    expect(within(rows[2]).getByText("Centrocampista")).toBeInTheDocument();
+    expect(within(rows[2]).getByText("Jugador 3")).toBeInTheDocument();
   });
 
   it("abre el modal para vender un jugador al hacer clic en el botón 'Vender'", async () => {
-    vi.spyOn(miPlantillaService, "useMiPlantilla").mockReturnValue({
-      data: aMiPlantilla(),
-      isLoading: false,
-      isError: false,
-    } as any);
-    renderWithRouter(<MiPlantilla />);
+    setupServicesMocks();
 
     const venderButtons = screen.getAllByRole("button", { name: /vender/i });
     await venderButtons[0].click();
