@@ -1,10 +1,16 @@
+export type PlayerPosition =
+  | "Portero"
+  | "Defensa"
+  | "Centrocampista"
+  | "Delantero";
+
 export interface Player {
   id: number;
   name: string;
-  position: "Portero" | "Defensa" | "Centrocampista" | "Delantero";
+  position: PlayerPosition;
   team: string;
   points: number;
-  price: number;
+  price?: number;
   image?: string;
   imageDetail?: string;
 }

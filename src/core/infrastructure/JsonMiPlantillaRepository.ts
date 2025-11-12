@@ -1,5 +1,6 @@
 import { MiPlantilla } from "@core/domain/MiPlantilla";
 import { MiPlantillaRepository } from "@core/domain/MiPlantillaRepository";
+import { PlayerPosition } from "@core/domain/Players";
 import miPlantillaData from "../../data/miPlantilla.json";
 
 export class JsonMiPlantillaRepository implements MiPlantillaRepository {
@@ -14,15 +15,12 @@ export class JsonMiPlantillaRepository implements MiPlantillaRepository {
 
     // Mapea los jugadores para forzar el tipo de position
     // Ya que al importar desde JSON pierde el tipo específico
+
     return {
       ...plantilla,
       jugadores: plantilla.jugadores.map((j) => ({
         ...j,
-        position: j.position as
-          | "Portero"
-          | "Defensa"
-          | "Centrocampista"
-          | "Delantero",
+        position: j.position as PlayerPosition,
       })),
     };
   }
