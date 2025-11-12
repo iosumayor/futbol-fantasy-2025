@@ -9,9 +9,30 @@ import { aUsuariosByLiga } from "@core/domain/___mocks___/aUsuariosByLiga";
 
 const mockMiPlantilla = aMiPlantilla({
   jugadores: [
-    { id: 1, name: "Jugador 1", position: "Portero" },
-    { id: 2, name: "Jugador 2", position: "Defensa" },
-    { id: 3, name: "Jugador 3", position: "Centrocampista" },
+    {
+      id: 1,
+      name: "Jugador 1",
+      position: "Portero",
+      team: "Equipo A",
+      points: 10,
+      price: 5,
+    },
+    {
+      id: 2,
+      name: "Jugador 2",
+      position: "Defensa",
+      team: "Equipo B",
+      points: 20,
+      price: 7,
+    },
+    {
+      id: 3,
+      name: "Jugador 3",
+      position: "Centrocampista",
+      team: "Equipo C",
+      points: 30,
+      price: 9,
+    },
   ],
 });
 
@@ -43,7 +64,7 @@ function setupServicesMocks({
   renderWithRouter(<MiPlantilla />);
 }
 
-describe("en el la pagina de mi plantilla", () => {
+describe("en la pagina de mi plantilla", () => {
   afterEach(() => {
     vi.restoreAllMocks();
   });
