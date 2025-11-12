@@ -46,6 +46,7 @@ describe("en el componente Home", () => {
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
       isAuthenticated: true,
+      user: { id: 1, username: "demo" },
       login: vi.fn(),
       logout: vi.fn(),
     });

@@ -26,7 +26,7 @@ export function useLogin() {
       data.usuario === MOCK_USER.usuario &&
       data.contraseña === MOCK_USER.contraseña
     ) {
-      login();
+      login({ id: 1, username: data.usuario });
       navigate("/");
     } else {
       setError("contraseña", { message: "Usuario o contraseña incorrectos" });

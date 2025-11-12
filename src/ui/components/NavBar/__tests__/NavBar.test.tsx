@@ -52,6 +52,7 @@ describe("en el componente NavBar", () => {
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
       isAuthenticated: true,
+      user: { id: 1, username: "demo" },
       login: vi.fn(),
       logout: vi.fn(),
     });
@@ -72,6 +73,7 @@ describe("en el componente NavBar", () => {
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
       isAuthenticated: false,
+      user: { id: 1, username: "demo" },
       login: vi.fn(),
       logout: vi.fn(),
     });
@@ -93,6 +95,7 @@ describe("en el componente NavBar", () => {
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
       isAuthenticated: true,
+      user: { id: 1, username: "demo" },
       login: vi.fn(),
       logout: vi.fn(),
     });
@@ -110,6 +113,7 @@ describe("en el componente NavBar", () => {
     const useAuthMock = vi.spyOn(useAuth, "useAuth");
     useAuthMock.mockReturnValue({
       isAuthenticated: true,
+      user: { id: 1, username: "demo" },
       login: vi.fn(),
       logout: vi.fn(),
     });
