@@ -96,7 +96,7 @@ export const MiPlantilla: React.FC = () => {
           confirmText="Confirmar venta"
           backText="Cancelar"
           onConfirm={() => {
-            // Falta la lógica de venta
+            // TODO: Falta la lógica de venta
             setSelectedPlayerId(null);
           }}
         >
