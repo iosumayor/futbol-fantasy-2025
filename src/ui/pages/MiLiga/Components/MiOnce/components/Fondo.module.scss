@@ -1,0 +1,10 @@
+.fondo {
+  position: relative;
+  width: 446px; // Ajusta según el espacio que quieras en pantalla
+  height: 650px; // Mantén la proporción: 1405/2047 ≈ 0.686
+  margin: 0 auto;
+  background: url("@assets/campoFutbol.png") center center no-repeat;
+  background-size: contain; // Muestra la imagen completa
+  border-radius: 20px;
+  overflow: hidden;
+}
