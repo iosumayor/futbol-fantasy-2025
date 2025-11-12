@@ -1,0 +1,1 @@
+export { MiPlantilla } from "./MiPlantilla";
