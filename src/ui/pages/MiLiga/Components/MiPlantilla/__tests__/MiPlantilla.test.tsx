@@ -6,6 +6,7 @@ import * as miPlantillaService from "@core/services/miPlantillaService";
 import * as usuariosService from "@core/services/usuariosByLigaService";
 import { aMiPlantilla } from "@core/domain/___mocks___/aMiPlantilla";
 import { aUsuariosByLiga } from "@core/domain/___mocks___/aUsuariosByLiga";
+import userEvent from "@testing-library/user-event";
 
 const mockMiPlantilla = aMiPlantilla({
   jugadores: [
@@ -113,8 +114,9 @@ describe("en la pagina de mi plantilla", () => {
     setupServicesMocks();
 
     const venderButtons = screen.getAllByRole("button", { name: /vender/i });
-    await venderButtons[0].click();
-
-    expect(screen.getByText("Confirmar venta")).toBeInTheDocument();
+    await userEvent.click(venderButtons[0]);
+    expect(
+      screen.getByText(/¿Quieres vender a Jugador 1/i),
+    ).toBeInTheDocument();
   });
 });
