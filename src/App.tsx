@@ -13,6 +13,7 @@ import { PaginaGeneralMiLiga } from "@ui/pages/MiLiga/Components/PaginaGeneralMi
 import { MercadoJugadores } from "@ui/pages/MiLiga/Components/MercadoJugadores";
 import { MiLigaLayout } from "@ui/pages/MiLiga/Components/PaginaGeneralMiLiga/MiLigaLayout";
 import { Clasificacion } from "@ui/pages/MiLiga/Components/Clasificacion";
+import { MiPlantilla } from "@ui/pages/MiLiga/Components/MiPlantilla/MiPlantilla";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ function App() {
             <Route index element={<PaginaGeneralMiLiga />} />
             <Route path="mercado" element={<MercadoJugadores />} />
             <Route path="clasificacion" element={<Clasificacion />} />
+            <Route path="plantilla" element={<MiPlantilla />} />
           </Route>
         </Routes>
       </BrowserRouter>

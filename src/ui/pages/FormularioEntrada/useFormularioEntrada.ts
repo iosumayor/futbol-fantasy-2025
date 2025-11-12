@@ -55,7 +55,7 @@ export function useFormularioEntrada() {
     const step1Data = step1Form.getValues();
     const allData = { ...step1Data, ...data };
     console.log("Datos enviados:", allData);
-    login();
+    login({ id: 1, username: allData.nombreUsuario });
     navigate("/");
   };
 

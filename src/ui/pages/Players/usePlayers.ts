@@ -34,7 +34,9 @@ export function usePlayers() {
   );
 
   const sortedByPricePlayers = [...filteredPlayers].sort((a, b) =>
-    priceOrder === "asc" ? a.price - b.price : b.price - a.price,
+    priceOrder === "asc"
+      ? (a.price ?? 0) - (b.price ?? 0)
+      : (b.price ?? 0) - (a.price ?? 0),
   );
 
   return {

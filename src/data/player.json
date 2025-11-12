@@ -210,5 +210,19 @@
     "position": "Portero",
     "team": "Osasuna",
     "precio": 7
+  },
+  {
+    "id": 31,
+    "name": "José Gayà",
+    "position": "Defensa",
+    "team": "Valencia",
+    "precio": 7
+  },
+  {
+    "id": 32,
+    "name": "Arnau Martínez",
+    "position": "Defensa",
+    "team": "Girona",
+    "precio": 7
   }
 ]
