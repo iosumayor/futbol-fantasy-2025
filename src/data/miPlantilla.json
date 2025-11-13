@@ -19,7 +19,8 @@
         "position": "Portero",
         "team": "Atlético de Madrid",
         "points": 80,
-        "price": 9
+        "price": 9,
+        "image": "https://assets.laliga.com/squad/2025/t175/p81352/128x128/p81352_t175_2025_1_002_000.jpg"
       },
       {
         "id": 26,
@@ -27,7 +28,8 @@
         "position": "Defensa",
         "team": "Real Betis",
         "points": 70,
-        "price": 7
+        "price": 7,
+        "image": "https://assets.laliga.com/squad/2025/t185/p441303/128x128/p441303_t185_2025_1_002_000.jpg"
       },
       {
         "id": 27,
@@ -35,7 +37,8 @@
         "position": "Defensa",
         "team": "Athletic Club",
         "points": 70,
-        "price": 7
+        "price": 7,
+        "image": "https://assets.laliga.com/squad/2025/t174/p197319/128x128/p197319_t174_2025_1_002_000.jpg"
       },
       {
         "id": 29,
@@ -51,7 +54,8 @@
         "position": "Defensa",
         "team": "Valencia",
         "points": 60,
-        "price": 7
+        "price": 7,
+        "image": "https://assets.laliga.com/squad/2025/t191/p132105/128x128/p132105_t191_2025_1_002_000.jpg"
       },
       {
         "id": 32,
@@ -59,7 +63,8 @@
         "position": "Defensa",
         "team": "Girona",
         "points": 60,
-        "price": 7
+        "price": 7,
+        "image": "https://assets.laliga.com/squad/2025/t2893/p517333/128x128/p517333_t2893_2025_1_002_000.jpg"
       },
       {
         "id": 2,
@@ -75,7 +80,8 @@
         "position": "Centrocampista",
         "team": "Real Madrid",
         "points": 110,
-        "price": 13
+        "price": 13,
+        "image": "https://assets.laliga.com/squad/2025/t186/p244855/128x128/p244855_t186_2025_1_002_000.jpg"
       },
       {
         "id": 7,
@@ -83,7 +89,8 @@
         "position": "Centrocampista",
         "team": "Real Betis",
         "points": 70,
-        "price": 8
+        "price": 8,
+        "image": "https://assets.laliga.com/squad/2025/t185/p80209/128x128/p80209_t185_2025_1_002_000.jpg"
       },
       {
         "id": 12,
@@ -99,7 +106,8 @@
         "position": "Centrocampista",
         "team": "Barcelona",
         "points": 80,
-        "price": 10
+        "price": 10,
+        "image": "https://assets.laliga.com/squad/2025/t178/p490541/128x128/p490541_t178_2025_1_002_000.jpg"
       },
       {
         "id": 1,
@@ -107,7 +115,8 @@
         "position": "Delantero",
         "team": "Barcelona",
         "points": 85,
-        "price": 10
+        "price": 10,
+        "image": "https://assets.laliga.com/squad/2025/t178/p593109/128x128/p593109_t178_2025_1_002_000.jpg"
       },
       {
         "id": 10,
@@ -115,7 +124,8 @@
         "position": "Delantero",
         "team": "Athletic Club",
         "points": 85,
-        "price": 9
+        "price": 9,
+        "image": "https://assets.laliga.com/squad/2025/t174/p197334/128x128/p197334_t174_2025_1_002_000.jpg"
       },
       {
         "id": 22,
@@ -123,7 +133,8 @@
         "position": "Delantero",
         "team": "Barcelona",
         "points": 95,
-        "price": 12
+        "price": 12,
+        "image": "https://assets.laliga.com/squad/2025/t178/p56764/128x128/p56764_t178_2025_1_002_000.jpg"
       }
     ]
   }
