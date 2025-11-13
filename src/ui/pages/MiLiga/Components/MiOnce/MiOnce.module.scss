@@ -13,13 +13,13 @@
 }
 .defensa2 {
   position: absolute;
-  left: 35%;
+  left: 40%;
   top: 65%;
   transform: translate(-50%, -50%);
 }
 .defensa3 {
   position: absolute;
-  left: 65%;
+  left: 60%;
   top: 65%;
   transform: translate(-50%, -50%);
 }
@@ -32,25 +32,25 @@
 
 .medio1 {
   position: absolute;
-  left: 30%;
+  left: 20%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
 .medio2 {
   position: absolute;
-  left: 50%;
+  left: 40%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
 .medio3 {
   position: absolute;
-  left: 70%;
+  left: 60%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
 .medio4 {
   position: absolute;
-  left: 90%;
+  left: 80%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
@@ -66,4 +66,66 @@
   left: 60%;
   top: 20%;
   transform: translate(-50%, -50%);
+}
+
+.imagen {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.nombreBox {
+  width: 70px; // igual o mayor que la imagen
+  margin: 0 auto;
+  background: #232526;
+  border-radius: 6px;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.nombreJugador {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.selectorListado {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.selectorItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: #232526;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  padding: 0.5rem 1rem;
+}
+
+.selectorItem img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #00ffb3;
+  background: #fff;
+}
+
+.selectorItem button {
+  margin-left: auto;
 }

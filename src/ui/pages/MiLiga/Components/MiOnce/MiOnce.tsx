@@ -71,16 +71,28 @@ export const MiOnce: React.FC = () => {
             onClick={() => setPosSeleccionada(pos.key)}
             style={{ cursor: "pointer" }}
           >
-            {alineacion[pos.key]?.name || pos.label}
+            {alineacion[pos.key] ? (
+              <>
+                <img
+                  src={alineacion[pos.key]?.image}
+                  alt={alineacion[pos.key]?.name}
+                  className={styles.imagen}
+                />
+                <div className={styles.nombreBox}>
+                  <span className={styles.nombreJugador}>
+                    {alineacion[pos.key]?.shirtname ||
+                      alineacion[pos.key]?.name}
+                  </span>
+                </div>
+              </>
+            ) : (
+              <Button>+</Button>
+            )}
           </div>
         ))}
       </Fondo>
       {posSeleccionada && (
-        <Modal
-          onClose={() => setPosSeleccionada(null)}
-          confirmText="Alinear"
-          backText="Cancelar"
-        >
+        <Modal onClose={() => setPosSeleccionada(null)} backText="Cancelar">
           <Title level={3} align="center">
             Elige jugador para{" "}
             {posiciones.find((p) => p.key === posSeleccionada)?.label}
@@ -88,14 +100,21 @@ export const MiOnce: React.FC = () => {
           {jugadoresDisponibles?.length === 0 ? (
             <div>No hay jugadores disponibles para esta posición.</div>
           ) : (
-            jugadoresDisponibles?.map((jugador) => (
-              <Button
-                key={jugador.id}
-                onClick={() => handleSeleccionJugador(jugador)}
-              >
-                {jugador.name}
-              </Button>
-            ))
+            <ul className={styles.selectorListado}>
+              {jugadoresDisponibles?.map((jugador) => (
+                <li key={jugador.id} className={styles.selectorItem}>
+                  <img
+                    src={jugador.image}
+                    alt={jugador.name}
+                    className={styles.imagen}
+                  />
+                  <span>{jugador.name}</span>
+                  <Button onClick={() => handleSeleccionJugador(jugador)}>
+                    Seleccionar
+                  </Button>
+                </li>
+              ))}
+            </ul>
           )}
         </Modal>
       )}
