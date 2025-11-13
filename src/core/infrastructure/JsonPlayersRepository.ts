@@ -11,7 +11,10 @@ export class JsonPlayersRepository implements PlayerRepository {
       team: player.team,
       points: player.points ?? 0,
       price: player.precio ?? 0,
-      image: player.image,
+      image:
+        player.image === undefined
+          ? "https://assets.laliga.com/assets/public/backgrounds/avatar-noplayer-2.png"
+          : player.image,
       imageDetail: player.imageDetail,
     }));
 
