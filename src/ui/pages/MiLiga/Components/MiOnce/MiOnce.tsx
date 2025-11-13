@@ -75,7 +75,10 @@ export const MiOnce: React.FC = () => {
     : [];
 
   const handleSeleccionJugador = (jugador: Player) => {
-    setAlineacion((prev) => ({ ...prev, [posSeleccionada!]: jugador }));
+    setAlineacion((prev) => {
+      const nuevaAlineacion = { ...prev, [posSeleccionada!]: jugador };
+      return nuevaAlineacion;
+    });
     setPosSeleccionada(null);
   };
 
