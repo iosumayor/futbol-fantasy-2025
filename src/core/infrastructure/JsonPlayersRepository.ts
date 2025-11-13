@@ -7,6 +7,7 @@ export class JsonPlayersRepository implements PlayerRepository {
     const players: Player[] = playersData.map((player: any) => ({
       id: player.id,
       name: player.name,
+      shirtname: player.shirtname,
       position: player.position,
       team: player.team,
       points: player.points ?? 0,
