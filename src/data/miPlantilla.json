@@ -6,6 +6,7 @@
       {
         "id": 3,
         "name": "Marc-André ter Stegen",
+        "shirtname": "Ter Stegen",
         "position": "Portero",
         "team": "Barcelona",
         "points": 90,
@@ -16,6 +17,7 @@
       {
         "id": 6,
         "name": "Jan Oblak",
+        "shirtname": "Oblak",
         "position": "Portero",
         "team": "Atlético de Madrid",
         "points": 80,
@@ -25,6 +27,7 @@
       {
         "id": 26,
         "name": "Aitor Ruibal",
+        "shirtname": "Ruibal",
         "position": "Defensa",
         "team": "Real Betis",
         "points": 70,
@@ -34,6 +37,7 @@
       {
         "id": 27,
         "name": "Yeray Álvarez",
+        "shirtname": "Yeray",
         "position": "Defensa",
         "team": "Athletic Club",
         "points": 70,
@@ -43,6 +47,7 @@
       {
         "id": 29,
         "name": "Pau Torres",
+        "shirtname": "Pau",
         "position": "Defensa",
         "team": "Villarreal",
         "points": 65,
@@ -51,6 +56,7 @@
       {
         "id": 31,
         "name": "José Gayà",
+        "shirtname": "Gayà",
         "position": "Defensa",
         "team": "Valencia",
         "points": 60,
@@ -60,6 +66,7 @@
       {
         "id": 32,
         "name": "Arnau Martínez",
+        "shirtname": "Arnau",
         "position": "Defensa",
         "team": "Girona",
         "points": 60,
@@ -69,6 +76,7 @@
       {
         "id": 2,
         "name": "Luka Modric",
+        "shirtname": "Modric",
         "position": "Centrocampista",
         "team": "Real Madrid",
         "points": 100,
@@ -77,6 +85,7 @@
       {
         "id": 4,
         "name": "Jude Bellingham",
+        "shirtname": "Bellingham",
         "position": "Centrocampista",
         "team": "Real Madrid",
         "points": 110,
@@ -86,6 +95,7 @@
       {
         "id": 7,
         "name": "Isco",
+        "shirtname": "Isco",
         "position": "Centrocampista",
         "team": "Real Betis",
         "points": 70,
@@ -95,6 +105,7 @@
       {
         "id": 12,
         "name": "Mikel Merino",
+        "shirtname": "Merino",
         "position": "Centrocampista",
         "team": "Real Sociedad",
         "points": 75,
@@ -103,6 +114,7 @@
       {
         "id": 21,
         "name": "Pedri",
+        "shirtname": "Pedri",
         "position": "Centrocampista",
         "team": "Barcelona",
         "points": 80,
@@ -112,6 +124,7 @@
       {
         "id": 1,
         "name": "Lamine Yamal",
+        "shirtname": "Yamal",
         "position": "Delantero",
         "team": "Barcelona",
         "points": 85,
@@ -121,6 +134,7 @@
       {
         "id": 10,
         "name": "Iñaki Williams",
+        "shirtname": "I.Williams",
         "position": "Delantero",
         "team": "Athletic Club",
         "points": 85,
@@ -130,6 +144,7 @@
       {
         "id": 22,
         "name": "Robert Lewandowski",
+        "shirtname": "Lewandowski",
         "position": "Delantero",
         "team": "Barcelona",
         "points": 95,
