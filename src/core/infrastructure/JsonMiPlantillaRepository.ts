@@ -21,6 +21,10 @@ export class JsonMiPlantillaRepository implements MiPlantillaRepository {
       jugadores: plantilla.jugadores.map((j) => ({
         ...j,
         position: j.position as PlayerPosition,
+        image:
+          j.image === undefined
+            ? "https://assets.laliga.com/assets/public/backgrounds/avatar-noplayer-2.png"
+            : j.image,
       })),
     };
   }

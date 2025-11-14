@@ -1,0 +1,219 @@
+.portero_formacion442 {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.defensa1_formacion442 {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa2_formacion442 {
+  position: absolute;
+  left: 40%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa3_formacion442 {
+  position: absolute;
+  left: 60%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa4_formacion442 {
+  position: absolute;
+  left: 80%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+
+.medio1_formacion442 {
+  position: absolute;
+  left: 20%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.medio2_formacion442 {
+  position: absolute;
+  left: 40%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.medio3_formacion442 {
+  position: absolute;
+  left: 60%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.medio4_formacion442 {
+  position: absolute;
+  left: 80%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.delantero1_formacion442 {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+.delantero2_formacion442 {
+  position: absolute;
+  left: 60%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.portero_formacion433 {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.defensa1_formacion433 {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa2_formacion433 {
+  position: absolute;
+  left: 40%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa3_formacion433 {
+  position: absolute;
+  left: 60%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+.defensa4_formacion433 {
+  position: absolute;
+  left: 80%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+}
+
+.medio1_formacion433 {
+  position: absolute;
+  left: 25%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.medio2_formacion433 {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.medio3_formacion433 {
+  position: absolute;
+  left: 75%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.delantero1_formacion433 {
+  position: absolute;
+  left: 25%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+.delantero2_formacion433 {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+.delantero3_formacion433 {
+  position: absolute;
+  left: 75%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.selectFormacion {
+  margin: 1rem auto 2rem auto;
+  display: block;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #00ffb3;
+  background: #232526;
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.selectFormacion:focus {
+  border-color: #00b3ff;
+}
+
+.imagen {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.nombreBox {
+  width: 70px; // igual o mayor que la imagen
+  margin: 0 auto;
+  background: #232526;
+  border-radius: 6px;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.nombreJugador {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.selectorListado {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.selectorItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: #232526;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+  padding: 0.5rem 1rem;
+}
+
+.selectorItem img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #00ffb3;
+  background: #fff;
+}
+
+.selectorItem button {
+  margin-left: auto;
+}
