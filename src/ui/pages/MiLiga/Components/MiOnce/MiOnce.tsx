@@ -98,6 +98,9 @@ export const MiOnce: React.FC = () => {
 
   return (
     <div>
+      <Title level={1} align="center">
+        Pagina de Mi Once
+      </Title>
       <select
         className={styles.selectFormacion}
         value={formacion}
@@ -114,6 +117,7 @@ export const MiOnce: React.FC = () => {
         {posiciones.map((pos) => (
           <div
             key={pos.key}
+            data-testid={pos.key}
             className={
               styles[`${pos.key}_formacion${formacion.replace(/-/g, "")}`]
             }
