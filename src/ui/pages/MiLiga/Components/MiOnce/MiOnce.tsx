@@ -9,7 +9,6 @@ import { Modal } from "@ui/components/Common/Modal/Modal";
 import styles from "./MiOnce.module.scss";
 import { Button } from "@ui/components/Common/Button/Button";
 
-/// De momnento solo se prueba con una formacion
 const formaciones = {
   "4-4-2": [
     { key: "portero", label: "Portero", position: "Portero" },
@@ -100,6 +99,7 @@ export const MiOnce: React.FC = () => {
   return (
     <div>
       <select
+        className={styles.selectFormacion}
         value={formacion}
         onChange={(e) =>
           handleFormacionChange(e.target.value as keyof typeof formaciones)
