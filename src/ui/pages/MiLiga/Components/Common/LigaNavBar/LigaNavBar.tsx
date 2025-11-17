@@ -15,6 +15,14 @@ export const LigaNavBar: React.FC<LigaNavBarProps> = ({ ligaId }) => {
         <li>
           <Button
             variant="green"
+            onClick={() => navigate(`/mi-liga/${ligaId}`)}
+          >
+            Inicio
+          </Button>
+        </li>
+        <li>
+          <Button
+            variant="green"
             onClick={() => navigate(`/mi-liga/${ligaId}/mercado`)}
           >
             Mercado
