@@ -48,4 +48,28 @@ describe("en la pagina general de mi liga", () => {
       await screen.findByText("Error al cargar la liga"),
     ).toBeInTheDocument();
   });
+
+  it("deberia mostrarte los resultados de la jornada en la que te encuentras", async () => {
+    setupPaginaGeneralMiLigaTest();
+
+    expect(await screen.findByText("Resultados Jornada 1")).toBeInTheDocument();
+    expect(screen.getByText("Equipo A")).toBeInTheDocument();
+    expect(screen.getByText("Equipo B")).toBeInTheDocument();
+    expect(screen.getByText("2")).toBeInTheDocument();
+    expect(screen.getByText("1")).toBeInTheDocument();
+  });
+
+  it("deberia permitirte navegar entre jornadas", async () => {
+    setupPaginaGeneralMiLigaTest();
+
+    const botonJornada2 = await screen.findByRole("button", {
+      name: "Jornada 2",
+    });
+    botonJornada2.click();
+    expect(await screen.findByText("Resultados Jornada 2")).toBeInTheDocument();
+    expect(screen.getByText("Equipo C")).toBeInTheDocument();
+    expect(screen.getByText("Equipo D")).toBeInTheDocument();
+    expect(screen.getByText("0")).toBeInTheDocument();
+    expect(screen.getByText("3")).toBeInTheDocument();
+  });
 });
