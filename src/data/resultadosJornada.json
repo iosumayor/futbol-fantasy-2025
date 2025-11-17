@@ -1,0 +1,150 @@
+[
+  {
+    "jornada": 1,
+    "partidos": [
+      {
+        "id": 1,
+        "local": {
+          "id": 1,
+          "name": "Real Madrid",
+          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683880/dfzkukcnvu01poll4tul.png"
+        },
+        "visitante": {
+          "id": 2,
+          "name": "Barcelona",
+          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683830/vr25sjmqej3yutc972l5.png"
+        },
+        "golesLocal": 2,
+        "golesVisitante": 1
+      },
+      {
+        "id": 2,
+        "local": {
+          "id": 3,
+          "name": "Valencia",
+          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683998/dclnm9uhfvbuhvtg7ieo.png"
+        },
+        "visitante": {
+          "id": 4,
+          "name": "Sevilla",
+          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694684000/abcd1234.png"
+        },
+        "golesLocal": 0,
+        "golesVisitante": 0
+      },
+      {
+        "id": 3,
+        "local": "Atlético de Madrid",
+        "visitante": "Villarreal",
+        "golesLocal": 1,
+        "golesVisitante": 2
+      },
+      {
+        "id": 4,
+        "local": "Real Betis",
+        "visitante": "Real Sociedad",
+        "golesLocal": 3,
+        "golesVisitante": 1
+      }
+    ]
+  },
+  {
+    "jornada": 2,
+    "partidos": [
+      {
+        "id": 5,
+        "local": "Barcelona",
+        "visitante": "Valencia",
+        "golesLocal": 3,
+        "golesVisitante": 2
+      },
+      {
+        "id": 6,
+        "local": "Sevilla",
+        "visitante": "Real Madrid",
+        "golesLocal": 1,
+        "golesVisitante": 2
+      },
+      {
+        "id": 7,
+        "local": "Villarreal",
+        "visitante": "Real Betis",
+        "golesLocal": 0,
+        "golesVisitante": 0
+      },
+      {
+        "id": 8,
+        "local": "Real Sociedad",
+        "visitante": "Atlético de Madrid",
+        "golesLocal": 2,
+        "golesVisitante": 2
+      }
+    ]
+  },
+  {
+    "jornada": 3,
+    "partidos": [
+      {
+        "id": 9,
+        "local": "Valencia",
+        "visitante": "Real Madrid",
+        "golesLocal": 1,
+        "golesVisitante": 1
+      },
+      {
+        "id": 10,
+        "local": "Barcelona",
+        "visitante": "Sevilla",
+        "golesLocal": 2,
+        "golesVisitante": 0
+      },
+      {
+        "id": 11,
+        "local": "Atlético de Madrid",
+        "visitante": "Real Betis",
+        "golesLocal": 2,
+        "golesVisitante": 1
+      },
+      {
+        "id": 12,
+        "local": "Villarreal",
+        "visitante": "Real Sociedad",
+        "golesLocal": 1,
+        "golesVisitante": 3
+      }
+    ]
+  },
+  {
+    "jornada": 4,
+    "partidos": [
+      {
+        "id": 13,
+        "local": "Sevilla",
+        "visitante": "Valencia",
+        "golesLocal": 0,
+        "golesVisitante": 1
+      },
+      {
+        "id": 14,
+        "local": "Real Madrid",
+        "visitante": "Barcelona",
+        "golesLocal": 1,
+        "golesVisitante": 3
+      },
+      {
+        "id": 15,
+        "local": "Real Sociedad",
+        "visitante": "Atlético de Madrid",
+        "golesLocal": 2,
+        "golesVisitante": 2
+      },
+      {
+        "id": 16,
+        "local": "Real Betis",
+        "visitante": "Villarreal",
+        "golesLocal": 1,
+        "golesVisitante": 0
+      }
+    ]
+  }
+]
