@@ -7,7 +7,7 @@ interface ModalProps {
   onClose: () => void;
   onConfirm?: () => void;
   children: React.ReactNode;
-  confirmText: string;
+  confirmText?: string;
   backText: string;
 }
 
@@ -26,9 +26,11 @@ export const Modal: React.FC<ModalProps> = ({
           <Button variant="red" onClick={onClose}>
             {backText}
           </Button>
-          <Button variant="green" onClick={onConfirm}>
-            {confirmText}
-          </Button>
+          {onConfirm && confirmText && (
+            <Button variant="green" onClick={onConfirm}>
+              {confirmText}
+            </Button>
+          )}
         </div>
       </div>
     </div>

@@ -61,6 +61,12 @@ export const MercadoJugadores: React.FC = () => {
         <Modal
           onClose={() => setSelectedPlayer(null)}
           confirmText="Fichar"
+          onConfirm={() => {
+            alert(
+              `Has fichado a ${selectedPlayer.name} por ${selectedPlayer.price}€`,
+            );
+            setSelectedPlayer(null);
+          }}
           backText="Volver atrás"
         >
           <h2>¿Quieres fichar a {selectedPlayer.name}?</h2>
