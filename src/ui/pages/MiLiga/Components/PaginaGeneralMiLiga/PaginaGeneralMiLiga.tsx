@@ -20,11 +20,6 @@ export const PaginaGeneralMiLiga: React.FC = () => {
   if (isError || isErrorResultados)
     return <div>Error al cargar los resultados</div>;
 
-  if (isLoading || isLoadingResultados)
-    return <div>Cargando resultados...</div>;
-  if (isError || isErrorResultados)
-    return <div>Error al cargar los resultados</div>;
-
   const TOTAL_JORNADAS = 4;
 
   return (
