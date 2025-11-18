@@ -65,6 +65,17 @@
   font-weight: 600;
   color: #00ffb3;
   min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.equipo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.1);
 }
 
 .marcador {

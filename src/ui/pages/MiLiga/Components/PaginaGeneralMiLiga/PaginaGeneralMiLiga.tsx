@@ -3,81 +3,29 @@ import React, { useState } from "react";
 import { Title } from "@ui/components/Common/Title/Title";
 import { useLigaById } from "@core/services/ligasService";
 import styles from "./PaginaGeneralMiLiga.module.scss";
-
-const mockResultadosJornada = [
-  {
-    jornada: 1,
-    partidos: [
-      {
-        local: "Real Madrid",
-        visitante: "Barcelona",
-        golesLocal: 2,
-        golesVisitante: 1,
-      },
-      {
-        local: "Valencia",
-        visitante: "Sevilla",
-        golesLocal: 0,
-        golesVisitante: 0,
-      },
-      {
-        local: "Atlético de Madrid",
-        visitante: "Villarreal",
-        golesLocal: 1,
-        golesVisitante: 2,
-      },
-      {
-        local: "Real Betis",
-        visitante: "Real Sociedad",
-        golesLocal: 3,
-        golesVisitante: 1,
-      },
-    ],
-  },
-  {
-    jornada: 2,
-    partidos: [
-      {
-        local: "Barcelona",
-        visitante: "Valencia",
-        golesLocal: 3,
-        golesVisitante: 2,
-      },
-      {
-        local: "Sevilla",
-        visitante: "Real Madrid",
-        golesLocal: 1,
-        golesVisitante: 2,
-      },
-      {
-        local: "Villarreal",
-        visitante: "Real Betis",
-        golesLocal: 0,
-        golesVisitante: 0,
-      },
-      {
-        local: "Real Sociedad",
-        visitante: "Atlético de Madrid",
-        golesLocal: 2,
-        golesVisitante: 2,
-      },
-    ],
-  },
-];
+import { useResultadosJornada } from "@core/services/resultadosJornadaService";
 
 export const PaginaGeneralMiLiga: React.FC = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useLigaById(Number(id));
-  const [jornadaActual, setJornadaActual] = useState(
-    mockResultadosJornada[0].jornada,
-  );
+  const [jornadaActual, setJornadaActual] = useState(1);
+  const {
+    data: resultadosJornadaData,
+    isLoading: isLoadingResultados,
+    isError: isErrorResultados,
+  } = useResultadosJornada(jornadaActual);
 
-  if (isLoading) return <div>Cargando liga...</div>;
-  if (isError) return <div>Error al cargar la liga</div>;
+  if (isLoading || isLoadingResultados)
+    return <div>Cargando resultados...</div>;
+  if (isError || isErrorResultados)
+    return <div>Error al cargar los resultados</div>;
 
-  const jornadaSeleccionada = mockResultadosJornada.find(
-    (j) => j.jornada === jornadaActual,
-  );
+  if (isLoading || isLoadingResultados)
+    return <div>Cargando resultados...</div>;
+  if (isError || isErrorResultados)
+    return <div>Error al cargar los resultados</div>;
+
+  const TOTAL_JORNADAS = 4;
 
   return (
     <>
@@ -98,27 +46,24 @@ export const PaginaGeneralMiLiga: React.FC = () => {
       <div className={styles.jornadasNav}>
         <button
           className={styles.jornadaBtn}
-          disabled={jornadaActual === mockResultadosJornada[0].jornada}
+          disabled={jornadaActual === 1}
           onClick={() => setJornadaActual(jornadaActual - 1)}
         >
           ⬅
         </button>
-        {mockResultadosJornada.map((jornada) => (
+        {Array.from({ length: TOTAL_JORNADAS }, (_, i) => (
           <button
-            key={jornada.jornada}
-            className={`${styles.jornadaBtn} ${jornadaActual === jornada.jornada ? styles["jornadaBtn--active"] : ""}`}
-            onClick={() => setJornadaActual(jornada.jornada)}
-            aria-label={`Jornada ${jornada.jornada}`}
+            key={i + 1}
+            className={`${styles.jornadaBtn} ${jornadaActual === i + 1 ? styles["jornadaBtn--active"] : ""}`}
+            onClick={() => setJornadaActual(i + 1)}
+            aria-label={`Jornada ${i + 1}`}
           >
-            {jornada.jornada}
+            {i + 1}
           </button>
         ))}
         <button
           className={styles.jornadaBtn}
-          disabled={
-            jornadaActual ===
-            mockResultadosJornada[mockResultadosJornada.length - 1].jornada
-          }
+          disabled={jornadaActual === TOTAL_JORNADAS}
           onClick={() => setJornadaActual(jornadaActual + 1)}
         >
           ➡
@@ -126,13 +71,29 @@ export const PaginaGeneralMiLiga: React.FC = () => {
       </div>
       <div className={styles.resultadosLista}>
         <ul>
-          {jornadaSeleccionada?.partidos.map((partido, index) => (
+          {resultadosJornadaData?.partidos.map((partido, index) => (
             <li key={index} className={styles.resultadoItem}>
-              <span className={styles.equipo}>{partido.local}</span>
+              <span className={styles.equipo}>
+                {partido.local.camisetaEquipo && (
+                  <img
+                    src={partido.local.camisetaEquipo}
+                    alt={`${partido.local.name} camiseta`}
+                  />
+                )}
+                {partido.local.name}
+              </span>
               <span className={styles.marcador}>
                 {partido.golesLocal} - {partido.golesVisitante}
               </span>
-              <span className={styles.equipo}>{partido.visitante}</span>
+              <span className={styles.equipo}>
+                {partido.visitante.camisetaEquipo && (
+                  <img
+                    src={partido.visitante.camisetaEquipo}
+                    alt={`${partido.visitante.name} camiseta`}
+                  />
+                )}
+                {partido.visitante.name}
+              </span>
             </li>
           ))}
         </ul>
