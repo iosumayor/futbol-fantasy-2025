@@ -7,12 +7,12 @@
         "local": {
           "id": 1,
           "name": "Real Madrid",
-          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683880/dfzkukcnvu01poll4tul.png"
+          "camisetaEquipo": "@assets/camiRecortadaMadrid.png"
         },
         "visitante": {
           "id": 2,
           "name": "Barcelona",
-          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683830/vr25sjmqej3yutc972l5.png"
+          "camisetaEquipo": "@assets/barcaCamiRecortada.png"
         },
         "golesLocal": 2,
         "golesVisitante": 1
@@ -22,12 +22,12 @@
         "local": {
           "id": 3,
           "name": "Valencia",
-          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694683998/dclnm9uhfvbuhvtg7ieo.png"
+          "camisetaEquipo": "@assets/valenciaCamiRecortada.png"
         },
         "visitante": {
           "id": 4,
           "name": "Sevilla",
-          "camisetaEquipo": "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694684000/abcd1234.png"
+          "camisetaEquipo": "@assets/sevillaCamiRecortada.png"
         },
         "golesLocal": 0,
         "golesVisitante": 0

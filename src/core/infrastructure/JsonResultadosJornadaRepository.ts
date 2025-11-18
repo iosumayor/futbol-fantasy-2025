@@ -22,14 +22,14 @@ export class JsonResultadosJornadaRepository
           name: partido.local.name,
           camisetaEquipo: partido.local.camisetaEquipo
             ? partido.local.camisetaEquipo
-            : "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694684162/jqegiy1qa7udulxetjdm.png",
+            : "@assets/randomCamiRecortada.png",
         },
         visitante: {
           id: partido.visitante.id,
           name: partido.visitante.name,
           camisetaEquipo: partido.visitante.camisetaEquipo
             ? partido.visitante.camisetaEquipo
-            : "https://img.ex.co/image/upload/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1.5/v1694684162/jqegiy1qa7udulxetjdm.png",
+            : "@assets/randomCamiRecortada.png",
         },
         golesLocal: partido.golesLocal,
         golesVisitante: partido.golesVisitante,
