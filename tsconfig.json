@@ -14,7 +14,8 @@
       "@core/*": ["core/*"],
       "@ui/*": ["ui/*"],
       "@test-utils/*": ["test-utils/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@public/*": ["../public/*"]
     }
   },
   "include": ["src", "vite.config.ts"],
