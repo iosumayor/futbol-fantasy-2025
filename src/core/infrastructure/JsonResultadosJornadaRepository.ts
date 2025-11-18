@@ -22,14 +22,14 @@ export class JsonResultadosJornadaRepository
           name: partido.local.name,
           camisetaEquipo: partido.local.camisetaEquipo
             ? partido.local.camisetaEquipo
-            : "@assets/randomCamiRecortada.png",
+            : "/assets/randomCamiRecortada.png",
         },
         visitante: {
           id: partido.visitante.id,
           name: partido.visitante.name,
           camisetaEquipo: partido.visitante.camisetaEquipo
             ? partido.visitante.camisetaEquipo
-            : "@assets/randomCamiRecortada.png",
+            : "/assets/randomCamiRecortada.png",
         },
         golesLocal: partido.golesLocal,
         golesVisitante: partido.golesVisitante,
