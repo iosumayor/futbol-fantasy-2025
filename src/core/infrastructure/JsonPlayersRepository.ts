@@ -7,11 +7,15 @@ export class JsonPlayersRepository implements PlayerRepository {
     const players: Player[] = playersData.map((player: any) => ({
       id: player.id,
       name: player.name,
+      shirtname: player.shirtname,
       position: player.position,
       team: player.team,
       points: player.points ?? 0,
       price: player.precio ?? 0,
-      image: player.image,
+      image:
+        player.image === undefined
+          ? "https://assets.laliga.com/assets/public/backgrounds/avatar-noplayer-2.png"
+          : player.image,
       imageDetail: player.imageDetail,
     }));
 
