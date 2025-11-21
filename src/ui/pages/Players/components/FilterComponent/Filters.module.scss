@@ -1,0 +1,36 @@
+@use "@styles/mixins" as mixins;
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  background: #232526;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem 2rem;
+
+  @include mixins.mobile {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+  }
+}
+
+.filters input {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #222;
+  font-size: 1rem;
+  background: #232526;
+  color: #fff;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.filters input:focus {
+  border-color: #00ffb3;
+  outline: none;
+}
