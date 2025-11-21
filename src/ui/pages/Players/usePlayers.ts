@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAllPlayers } from "@core/services/playersService";
-import { Player } from "@core/domain/Players";
+import { Player, PlayerPosition } from "@core/domain/Players";
 
 export function usePlayers() {
   const { data: players, isLoading, isError } = useAllPlayers();
@@ -10,9 +10,7 @@ export function usePlayers() {
   const [showTeamFilter, setShowTeamFilter] = useState(false);
   const [teamFilter, setTeamFilter] = useState("");
   const [showPositionFilter, setShowPositionFilter] = useState(false);
-  const [positionFilter, setPositionFilter] = useState<
-    "Portero" | "Defensa" | "Centrocampista" | "Delantero" | ""
-  >("");
+  const [positionFilter, setPositionFilter] = useState<PlayerPosition | "">("");
   const [priceOrder, setPriceOrder] = useState<"asc" | "desc">("asc");
 
   const filters = [
