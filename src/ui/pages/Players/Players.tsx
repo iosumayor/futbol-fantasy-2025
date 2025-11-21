@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Players.module.scss";
 import { usePlayers } from "./usePlayers";
 import { Title } from "@ui/components/Common/Title/Title";
-import { Button } from "@ui/components/Common/Button/Button";
+import { Filters } from "./components/FilterComponent";
 ///TODO: se podria crear algun componennte para la tabla
 ///Pensar si valdria la pena
 
@@ -34,62 +34,18 @@ export const Players: React.FC = () => {
       <Title level={1} align="center">
         Listado Jugadores
       </Title>
-      <div className={styles.filters}>
-        <input
-          type="text"
-          placeholder="Filtrar por nombre"
-          value={nameFilter}
-          onChange={(e) => setNameFilter(e.target.value)}
-        />
-        <Button
-          variant={showTeamFilter ? "green" : "blue"}
-          onClick={() => setShowTeamFilter((prev) => !prev)}
-        >
-          {showTeamFilter ? "Ocultar filtro equipo" : "Filtrar por equipo"}
-        </Button>
-        {showTeamFilter && (
-          <input
-            type="text"
-            placeholder="Filtrar por equipo"
-            value={teamFilter}
-            onChange={(e) => setTeamFilter(e.target.value)}
-          />
-        )}
-        <Button
-          variant={showPositionFilter ? "green" : "blue"}
-          onClick={() => setShowPositionFilter((prev) => !prev)}
-        >
-          {showPositionFilter
-            ? "Ocultar filtro posición"
-            : "Filtrar por posición"}
-        </Button>
-        {showPositionFilter && (
-          <div className={styles.positionFilters}>
-            {["Portero", "Defensa", "Centrocampista", "Delantero"].map(
-              (pos) => (
-                <Button
-                  variant={positionFilter === pos ? "blue" : "black"}
-                  key={pos}
-                  onClick={() =>
-                    setPositionFilter(
-                      pos as
-                        | "Portero"
-                        | "Defensa"
-                        | "Centrocampista"
-                        | "Delantero",
-                    )
-                  }
-                >
-                  {pos}
-                </Button>
-              ),
-            )}
-            <Button variant="blue" onClick={() => setPositionFilter("")}>
-              Quitar filtro
-            </Button>
-          </div>
-        )}
-      </div>
+      <Filters
+        nameFilter={nameFilter}
+        setNameFilter={setNameFilter}
+        showTeamFilter={showTeamFilter}
+        setShowTeamFilter={setShowTeamFilter}
+        teamFilter={teamFilter}
+        setTeamFilter={setTeamFilter}
+        showPositionFilter={showPositionFilter}
+        setShowPositionFilter={setShowPositionFilter}
+        positionFilter={positionFilter}
+        setPositionFilter={setPositionFilter}
+      />
       <table className={styles.table}>
         <thead>
           <tr>
