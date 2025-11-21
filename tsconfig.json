@@ -15,6 +15,7 @@
       "@ui/*": ["ui/*"],
       "@test-utils/*": ["test-utils/*"],
       "@styles/*": ["styles/*"],
+      "@public/*": ["../public/*"],
       "@assets/*": ["assets/*"]
     }
   },

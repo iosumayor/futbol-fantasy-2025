@@ -1,0 +1,90 @@
+.jornadasNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+.jornadaBtn {
+  background: #232526;
+  color: #fff;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 255, 179, 0.08);
+}
+
+.jornadaBtn--active {
+  background: #00ffb3;
+  color: #232526;
+  box-shadow: 0 0 0 3px #00ffb344;
+}
+
+.jornadaBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.resultadosLista {
+  margin: 0 auto;
+  max-width: 520px;
+  padding: 1.5rem 1rem;
+  background: #181a1b;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 255, 179, 0.1);
+}
+
+.resultadoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #232526;
+  font-size: 1.15rem;
+  font-family: "Roboto", Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.resultadoItem:last-child {
+  border-bottom: none;
+}
+
+.equipo {
+  font-weight: 600;
+  color: #00ffb3;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.equipo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.1);
+}
+
+.marcador {
+  font-weight: bold;
+  color: #fff;
+  background: #232526;
+  border-radius: 8px;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.1rem;
+  margin: 0 0.5rem;
+  box-shadow: 0 1px 4px rgba(0, 255, 179, 0.08);
+}

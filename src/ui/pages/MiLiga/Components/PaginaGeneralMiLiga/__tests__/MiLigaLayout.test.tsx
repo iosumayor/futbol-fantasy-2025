@@ -63,4 +63,11 @@ describe("en la pagina general de mi liga", () => {
     botonOnce.click();
     expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1/once");
   });
+
+  it("deberia navegar a la pagina de inicio al hacer click en el boton inicio", () => {
+    setupPaginaGeneralMiLigaTest();
+    const botonInicio = screen.getByText("Inicio");
+    botonInicio.click();
+    expect(mockNavigate).toHaveBeenCalledWith("/mi-liga/1");
+  });
 });
